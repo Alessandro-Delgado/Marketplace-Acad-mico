@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba de Login</title>
+</head>
+<body>
+    <h3>Prueba Directa a login.php</h3>
+    <input type="email" id="correo" placeholder="Correo UTP" value="u24204554@utp.edu.pe"><br><br>
+    <input type="password" id="password" placeholder="Contraseña"><br><br>
+    <button onclick="probarLogin()">Enviar a PHP</button>
+    <pre id="resultado"></pre>
+
+    <script>
+        async function probarLogin() {
+            const correo = document.getElementById('correo').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('http://localhost/utpino-backend/login.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ correo: correo, password: password })
+            });
+
+            const texto = await response.text();
+            document.getElementById('resultado').innerText = texto;
+        }
+    </script>
+</body>
+</html>

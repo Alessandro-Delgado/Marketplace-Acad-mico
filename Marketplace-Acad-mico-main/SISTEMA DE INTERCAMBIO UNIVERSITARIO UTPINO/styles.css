@@ -1,0 +1,461 @@
+/* ========================================================================== */
+/* 1. VARIABLES GLOBALES Y CONFIGURACIÓN DE TEMAS                         */
+/* ========================================================================== */
+
+/* --- Modo Claro (Nuevo Default Estricto) --- */
+:root {
+    --bg-main: #F4D0C9;
+    /* Fondo general salmón/blush */
+    --card-bg: #FDF0ED;
+    /* Fondo de tarjetas (blanco cálido suave) */
+    --text-main: #1E0D09;
+    /* Texto principal en marrón oscuro */
+    --gold-primary: #A8722A;
+    /* Dorado primario profundo para contraste AA */
+    --border-color: #E8B9AC;
+    /* Bordes y secundarios en tonos rosados discretos */
+}
+
+/* --- Modo Oscuro --- */
+html.dark {
+    --bg-main: #1E0D09;
+    /* Fondo general oscuro */
+    --card-bg: #2C140F;
+    /* Fondo de tarjetas y elementos oscuros */
+    --text-main: #F4D0C9;
+    /* Texto claro adaptado al modo oscuro */
+    --gold-primary: #C8983A;
+    /* Color dorado de acento más brillante */
+    --border-color: #4A231C;
+    /* Color de bordes atenuado para modo oscuro */
+}
+
+/* ========================================================================== */
+/* 2. ESTILOS BASE Y CUERPO DE LA PÁGINA                                      */
+/* ========================================================================== */
+
+/* Configuración general de fondo y transición suave al cambiar de tema */
+body.custom-body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ========================================================================== */
+/* 3. COMPONENTES DE LA BARRA DE NAVEGACIÓN (NAVBAR)                          */
+/* ========================================================================== */
+
+/* Contenedor principal de la barra de navegación superior */
+.nav-figma {
+    background-color: var(--card-bg) !important;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Texto del logotipo y título de la marca en la barra */
+.brand-text {
+    color: var(--text-main) !important;
+}
+
+/* Dimensiones y ajuste de la imagen del logotipo */
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+/* Campo de búsqueda interactivo en la barra superior */
+.search-input-figma {
+    background-color: var(--bg-main) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+/* Texto guía (placeholder) dentro del buscador */
+.search-input-figma::placeholder {
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+/* Posicionamiento y color del icono de la lupa en el buscador */
+.search-icon-pos {
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+/* Enlaces de navegación internos (Explorar, Ayuda) */
+.nav-link-figma {
+    color: var(--text-main) !important;
+}
+
+/* Botón flotante para alternar entre el modo claro y oscuro */
+.theme-btn-figma {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border-color) !important;
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
+/* Botón principal de inicio de sesión en la barra */
+.login-btn-figma {
+    background-color: var(--gold-primary) !important;
+    border-color: var(--gold-primary) !important;
+    color: #FFF !important;
+}
+
+/* ========================================================================== */
+/* 4. SECCIÓN HERO (PRINCIPAL) E ILUSTRACIONES                                */
+/* ========================================================================== */
+
+/* Fondo de la sección principal superior (Hero) */
+.hero-figma-bg {
+    background-color: var(--bg-main) !important;
+}
+
+/* Etiqueta tipo badge de información rápida en el hero */
+.badge-figma {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color);
+}
+
+/* Estilo para los títulos principales de la sección */
+.title-figma {
+    color: var(--text-main) !important;
+}
+
+/* Texto resaltado en color dorado distintivo */
+.gold-text {
+    color: var(--gold-primary) !important;
+}
+
+/* Párrafo descriptivo secundario en el bloque hero */
+.desc-figma {
+    color: var(--text-main) !important;
+    opacity: 0.8;
+}
+
+/* Botón principal de llamada a la acción (CTA) con color dorado */
+.gold-main-btn {
+    background-color: var(--gold-primary) !important;
+    border-color: var(--gold-primary) !important;
+    color: #FFF !important;
+}
+
+/* Botón alternativo con borde contorneado */
+.outline-custom-btn {
+    background-color: transparent !important;
+    border: 1px solid var(--text-main) !important;
+    color: var(--text-main) !important;
+}
+
+/* Números grandes de estadísticas en la interfaz */
+.stat-num {
+    color: var(--text-main) !important;
+}
+
+/* Etiquetas descriptivas debajo de las cifras estadísticas */
+.stat-label {
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+/* ========================================================================== */
+/* 5. TARJETAS DE PRODUCTOS Y CONTENEDORES                                    */
+/* ========================================================================== */
+
+/* Fondo y bordes genéricos para tarjetas de artículos */
+.card-figma-bg {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Subtítulos o categorías pequeñas dentro de las tarjetas */
+.card-sub {
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+/* Títulos principales ubicados dentro de las tarjetas */
+.card-title-figma {
+    color: var(--text-main) !important;
+}
+
+/* Precio actual destacado en los productos */
+.price-main {
+    color: var(--text-main) !important;
+}
+.intercambio-card {
+    color:rgb(243, 187, 65) !important;
+}
+
+/* Precio anterior tachado para mostrar ofertas */
+.price-old {
+    color: var(--text-main);
+    opacity: 0.5;
+}
+
+/* Texto indicador de ubicación geográfica del artículo */
+.location-text {
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+/* Insignia visual de seguridad en las tarjetas destacadas */
+.secure-badge {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color);
+}
+
+/* Insignia de estado "Destacado" con fondo dorado */
+.gold-badge {
+    background-color: var(--gold-primary) !important;
+    color: #FFF !important;
+}
+
+/* ========================================== */
+/* SECCIÓN CÓMO FUNCIONA */
+/* ========================================== */
+
+.how-step-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Movemos el número grande hacia la parte superior derecha de la tarjeta */
+.how-step-bg-number {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    /* Alineado a la derecha para dejar libre la izquierda al ícono */
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.10);
+    /* Tono translúcido muy sutil */
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* El contenido mantiene el ícono libre a la izquierda y baja los textos ordenadamente */
+.how-step-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Caja del ícono cuadrado con bordes redondeados */
+.how-icon-box {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+/* ========================================================================== */
+/* 6. SECCIÓN DE FILTROS, CATEGORÍAS Y TABS                                   */
+/* ========================================================================== */
+
+/* Contenedor general para las secciones de contenido secundarias */
+.content-section-figma {
+    background-color: var(--card-bg) !important;
+}
+
+/* Botón de categoría que se encuentra seleccionado actualmente */
+.category-btn-active {
+    background-color: var(--gold-primary) !important;
+    color: #FFF !important;
+}
+
+/* Botones de categoría estándar inactivos */
+.category-btn {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color);
+}
+
+/* Pestaña de navegación interna activa (Tabs) */
+.tab-active {
+    color: var(--gold-primary) !important;
+    border-bottom: 2px solid var(--gold-primary);
+}
+
+/* Pestañas de navegación interna inactivas */
+.tab-inactive {
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+/* Botón de favoritos (icono de corazón) en los productos */
+.fav-btn {
+    color: var(--text-main);
+    border: none;
+    background: transparent;
+}
+
+/* Sección informativa de pasos ("Cómo funciona") */
+.how-section-figma {
+    background-color: var(--bg-main) !important;
+}
+
+/* ========================================================================== */
+/* 7. SECCIÓN DE CONTACTO, SOPORTE Y FORMULARIOS                              */
+/* ========================================================================== */
+
+/* Fondo general de la sección de soporte/contacto */
+.contacto-figma-bg,
+#contacto {
+    background-color: var(--bg-main) !important;
+}
+
+/* Estilo unificado para campos de texto, select y áreas de texto */
+.form-control-figma,
+.form-control,
+.form-select {
+    background-color: var(--bg-main) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+/* Zona interactiva de carga de archivos por arrastre */
+.upload-dropzone {
+    background-color: var(--bg-main) !important;
+    border: 1px dashed var(--border-color) !important;
+}
+
+/* Enlaces con acento dorado en todo el sitio */
+.gold-link {
+    color: var(--gold-primary) !important;
+}
+
+/* ========================================================================== */
+/* 8. PIE DE PÁGINA (FOOTER)                                                  */
+/* ========================================================================== */
+
+/* Estructura y colores del pie de página corporativo */
+.footer-figma {
+    background-color: var(--card-bg) !important;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ========================================================================== */
+/* 9. VENTANA MODAL DE AUTENTICACIÓN Y SOPORTE ANTICONGELAMIENTO              */
+/* ========================================================================== */
+
+/* Capa de superposición oscura de fondo para el modal */
+.custom-modal-overlay {
+    display: none;
+    /* Se activa dinámicamente mediante JavaScript */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(40, 45, 40, 0.45);
+    /* Tonalidad translúcida suave */
+    backdrop-filter: blur(2px);
+    /* Efecto difuminado sutil de profundidad */
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenedor principal de la caja de diálogo del modal */
+.custom-modal-dialog {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    animation: scaleIn 0.2s ease-out;
+    /* Animación de apertura fluida */
+}
+
+/* Animación de escala para la aparición del modal */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Fondo y colores principales adaptados dentro de la caja del modal */
+.modal-figma-bg {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+}
+
+/* Dimensiones y ajuste para el logotipo interior del modal */
+.modal-logo-figma {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* Título principal dentro de la ventana de autenticación */
+.modal-title-figma {
+    color: var(--text-main) !important;
+}
+
+/* Párrafo descriptivo dentro de la ventana modal */
+.modal-desc-figma {
+    color: var(--text-main) !important;
+    opacity: 0.7;
+}
+
+/* Botones de inicio de sesión social (Google / Microsoft) */
+.social-btn-figma {
+    background-color: var(--bg-main) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+/* Botón alternativo para continuar con correo institucional */
+.inst-btn-figma {
+    background-color: transparent !important;
+    border: 1px dashed var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+/* Línea divisoria central con texto separador "o" */
+.divider-line-figma {
+    border-bottom: 1px solid var(--border-color);
+    height: 10px;
+}
+
+/* Texto central que acompaña a la línea divisoria del modal */
+.divider-text-figma {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+/* Texto de términos y condiciones en la parte inferior del modal */
+.modal-footer-text-figma {
+    font-size: 0.75rem;
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+/* ========================================================================== */
+/* 10. REGLAS ESPECÍFICAS DE VISIBILIDAD PARA EL MODO OSCURO                 */
+/* ========================================================================== */
+
+/* Fuerza a los textos secundarios, etiquetas y listas a verse en blanco en modo oscuro */
+html.dark .card-title-figma,
+html.dark .card-sub,
+html.dark .form-label,
+html.dark label,
+html.dark .text-muted,
+html.dark #contacto p,
+html.dark #contacto li,
+html.dark .upload-dropzone p {
+    color: #ffffff !important;
+}
+
+/* Garantiza que los textos de ayuda (placeholders) y selectores tengan buen contraste en oscuro */
+html.dark .form-control::placeholder,
+html.dark .form-select {
+    color: #b0b0b0 !important;
+}

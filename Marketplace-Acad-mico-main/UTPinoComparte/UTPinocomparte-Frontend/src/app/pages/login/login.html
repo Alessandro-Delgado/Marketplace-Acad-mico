@@ -1,0 +1,63 @@
+<div class="custom-modal-overlay">
+    <div class="custom-modal-dialog">
+        <div class="modal-content border-0 rounded-4 p-3 modal-figma-bg shadow-lg position-relative">
+
+            <!-- BOTÓN CERRAR -->
+            <div class="modal-header border-0 pb-0 justify-content-end">
+                <button type="button" routerLink="/inicio" class="btn-close shadow-none"></button>
+            </div>
+
+            <div class="modal-body text-center px-4 pt-0 pb-4">
+                <!-- LOGO -->
+                <div class="mb-3">
+                    <img src="assets/imgs/logo.jpeg" alt="Logo UTPINO"
+                        class="rounded-circle border border-2 border-white shadow-sm modal-logo-figma">
+                </div>
+
+                <h4 class="fw-bold modal-title-figma mb-2">Iniciar Sesión</h4>
+                <p class="modal-desc-figma small mb-4">Ingresa a tu cuenta de UTPinoComparte.</p>
+
+                <!-- FORMULARIO DE LOGIN -->
+                <form (ngSubmit)="onLogin()">
+                    <div class="mb-3 text-start">
+                        <label class="form-label fw-bold small">Correo institucional</label>
+                        <input type="email" [(ngModel)]="loginEmail" name="loginEmail"
+                            class="form-control form-control-figma rounded-pill shadow-none"
+                            placeholder="correo@utp.edu.pe" required>
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label class="form-label fw-bold small">Contraseña</label>
+                        <div class="position-relative">
+                            <input [type]="showLoginPassword ? 'text' : 'password'" [(ngModel)]="loginPassword"
+                                name="loginPassword"
+                                class="form-control form-control-figma rounded-pill shadow-none pe-5"
+                                placeholder="******" required>
+                            <button type="button" class="btn position-absolute top-50 end-0 translate-middle-y me-2 border-0 bg-transparent"
+                                (click)="showLoginPassword = !showLoginPassword">
+                                <i class="fa-solid" [ngClass]="showLoginPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div *ngIf="loginMessage" class="alert-message text-danger text-center mb-3 fw-bold small">
+                        {{ loginMessage }}
+                    </div>
+
+                    <button type="submit" class="btn w-100 py-2 rounded-pill fw-bold gold-main-btn mb-3">
+                        Ingresar
+                    </button>
+
+                    <div class="d-flex justify-content-between small">
+                        <button type="button" routerLink="/inicio" class="btn btn-link p-0 text-muted text-decoration-none">
+                            <i class="fa-solid fa-arrow-left me-1"></i> Volver
+                        </button>
+                        <a routerLink="/register" class="fw-bold gold-link text-decoration-none">
+                            ¿No tienes cuenta? Regístrate
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,146 @@
+/* ========================================================================== */
+/* 1. VARIABLES GLOBALES Y CONFIGURACIÓN DE TEMAS                              */
+/* ========================================================================== */
+
+/* --- Modo Claro (Default Estricto) --- */
+:root {
+    --bg-main: #F4D0C9;
+    --card-bg: #FDF0ED;
+    --text-main: #1E0D09;
+    --gold-primary: #A8722A;
+    --border-color: #E8B9AC;
+}
+
+/* --- Modo Oscuro --- */
+html.dark {
+    --bg-main: #1E0D09;
+    --card-bg: #2C140F;
+    --text-main: #F4D0C9;
+    --gold-primary: #C8983A;
+    --border-color: #4A231C;
+}
+
+/* ========================================================================== */
+/* 2. ESTILOS BASE Y CUERPO DE LA PÁGINA                                     */
+/* ========================================================================== */
+
+body.custom-body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* Efecto de desenfoque y oscurecimiento elegante para el fondo del modal */
+.modal-backdrop.show {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Soporte para Safari */
+    background-color: rgba(0, 0, 0, 0.4); /* Ajusta la opacidad si lo deseas más oscuro */
+    opacity: 1 !important;
+}
+
+/* ========================================================================== */
+/* 3. VENTANA MODAL GLOBAL (FLOTANTE)                                        */
+/* ========================================================================== */
+
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+
+.custom-modal-dialog {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-figma-bg {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+}
+
+.modal-logo-figma {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.modal-title-figma {
+    color: var(--text-main) !important;
+}
+
+.modal-desc-figma {
+    color: var(--text-main) !important;
+    opacity: 0.7;
+}
+
+.social-btn-figma {
+    background-color: var(--bg-main) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+.inst-btn-figma {
+    background-color: transparent !important;
+    border: 1px dashed var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+.divider-line-figma {
+    border-bottom: 1px solid var(--border-color);
+    height: 10px;
+}
+
+.divider-text-figma {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+.modal-footer-text-figma {
+    font-size: 0.75rem;
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+/* ========================================================================== */
+/* 10. REGLAS ESPECÍFICAS DE VISIBILIDAD PARA EL MODO OSCURO                 */
+/* ========================================================================== */
+
+/* Fuerza a los textos secundarios, etiquetas y listas a verse en blanco en modo oscuro */
+html.dark .card-title-figma,
+html.dark .card-sub,
+html.dark .form-label,
+html.dark label,
+html.dark .text-muted,
+html.dark #contacto p,
+html.dark #contacto li,
+html.dark .upload-dropzone p {
+    color: #ffffff !important;
+}
+
+/* Garantiza que los textos de ayuda (placeholders) y selectores tengan buen contraste en oscuro */
+html.dark .form-control::placeholder,
+html.dark .form-select {
+    color: #b0b0b0 !important;
+}

@@ -1,0 +1,92 @@
+-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS utpino_comparte;
+USE utpino_comparte;
+
+-- 1. Tabla USUARIO (Fundamental para tu parte de login y registro)
+CREATE TABLE usuario (
+    usuarioid INT AUTO_INCREMENT PRIMARY KEY,
+    cod_est VARCHAR(100) NOT NULL,
+    correo VARCHAR(150) NOT NULL UNIQUE,
+    contrasena VARCHAR(255) NOT NULL,
+    fech_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    estado VARCHAR(20) DEFAULT 'activo',
+    ultim_acces DATETIME DEFAULT NULL,
+    foto VARCHAR(255) DEFAULT NULL
+);
+
+-- 2. Tabla CATEGORIA_PROD
+CREATE TABLE categoria_prod (
+    cat_prodid INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL
+);
+
+-- 3. Tabla PRODUCTO
+CREATE TABLE producto (
+    productoid INT AUTO_INCREMENT PRIMARY KEY,
+    nom_prod VARCHAR(150) NOT NULL,
+    img_prod VARCHAR(255),
+    precio DECIMAL(10,2) NOT NULL,
+    stock INT NOT NULL,
+    estado VARCHAR(20) NOT NULL,
+    cat_prodid INT NOT NULL,
+    CONSTRAINT fk_producto_categoria FOREIGN KEY (cat_prodid) REFERENCES categoria_prod(cat_prodid)
+);
+
+-- 4. Tabla PUBLICACION
+CREATE TABLE publicacion (
+    publicacionid INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    hora TIME NOT NULL,
+    estado VARCHAR(20) NOT NULL,
+    productoid INT NOT NULL,
+    CONSTRAINT fk_publicacion_producto FOREIGN KEY (productoid) REFERENCES producto(productoid)
+);
+
+-- 5. Tabla HISTORIAL_PUBLIC
+CREATE TABLE historial_public (
+    historialid INT AUTO_INCREMENT PRIMARY KEY,
+    publicacionid INT NOT NULL,
+    CONSTRAINT fk_historial_publicacion FOREIGN KEY (publicacionid) REFERENCES publicacion(publicacionid)
+);
+
+-- 6. Tabla PERFIL
+CREATE TABLE perfil (
+    perfilid INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    appell VARCHAR(100) NOT NULL,
+    telef VARCHAR(20),
+    img_perfil VARCHAR(255),
+    historialid INT,
+    usuarioid INT NOT NULL,
+    CONSTRAINT fk_perfil_usuario FOREIGN KEY (usuarioid) REFERENCES usuario(usuarioid),
+    CONSTRAINT fk_perfil_historial FOREIGN KEY (historialid) REFERENCES historial_public(historialid)
+);
+
+-- 7. Tabla CONVERSACION (Para el chat)
+CREATE TABLE conversacion (
+    conversacionid INT AUTO_INCREMENT PRIMARY KEY,
+    tipo VARCHAR(50),
+    nombre VARCHAR(100),
+    fech_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 8. Tabla PARTICIPANTE (Para el chat)
+CREATE TABLE participante (
+    participanteid INT AUTO_INCREMENT PRIMARY KEY,
+    fech_union TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ultim_lectura DATETIME,
+    usuarioid INT NOT NULL,
+    CONSTRAINT fk_participante_usuario FOREIGN KEY (usuarioid) REFERENCES usuario(usuarioid)
+);
+
+-- 9. Tabla MENSAJE (Para el chat)
+CREATE TABLE mensaje (
+    mensajeid INT AUTO_INCREMENT PRIMARY KEY,
+    conversacionid INT NOT NULL,
+    participanteid INT NOT NULL,
+    txt_msj TEXT NOT NULL,
+    fech_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    estado VARCHAR(20),
+    CONSTRAINT fk_mensaje_conversacion FOREIGN KEY (conversacionid) REFERENCES conversacion(conversacionid),
+    CONSTRAINT fk_mensaje_participante FOREIGN KEY (participanteid) REFERENCES participante(participanteid)
+);

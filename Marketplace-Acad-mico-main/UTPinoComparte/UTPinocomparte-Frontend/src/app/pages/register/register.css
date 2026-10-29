@@ -1,0 +1,119 @@
+/* ================================================= */
+/* ESTILOS DEL MODAL - UTPINO COMPARTE */
+/* ================================================= */
+
+/* Capa de superposición oscura de fondo para el modal */
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+
+/* 2. Caja del modal con el color crema/marfil y los bordes precisos */
+.custom-modal-dialog {
+    width: 100%;
+    max-width: 460px;
+    background-color: #FDF9F5 !important; /* Color crema suave del diseño original */
+    border-radius: 20px !important;      /* Curva de las esquinas idéntica al Figma */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); /* Sombra flotante profunda */
+    z-index: 10000;
+    padding: 24px 20px;
+    position: relative;
+    animation: scaleIn 0.3s ease-in-out;
+}
+
+/* Animación de escala para la aparición del modal */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Fondo y colores principales adaptados dentro de la caja del modal */
+.modal-figma-bg {
+    background-color: var(--card-bg, #FDF9F5) !important;
+    color: var(--text-main, #1a3322) !important;
+}
+
+/* Dimensiones y ajuste para el logotipo interior del modal */
+.modal-logo-figma {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* Título principal dentro de la ventana de autenticación */
+.modal-title-figma {
+    color: var(--text-main, #1a3322) !important;
+}
+
+/* Párrafo descriptivo dentro de la ventana modal */
+.modal-desc-figma {
+    color: var(--text-main, #1a3322) !important;
+    opacity: 0.7;
+}
+
+/* Inputs de formulario adaptados a tu paleta */
+.form-control-figma {
+    background-color: #ffffff !important;
+    border: 1px solid var(--border-color, #dcd3c1) !important;
+    color: var(--text-main, #1a3322) !important;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.form-control-figma:focus {
+    border-color: #b5762a !important;
+    box-shadow: none !important;
+}
+
+/* Tarjeta contenedora de la foto de perfil */
+.photo-card-figma {
+    background-color: rgba(181, 118, 42, 0.05) !important;
+    border: 1px dashed var(--border-color, #dcd3c1);
+}
+
+/* Botón principal color dorado/mostaza de la paleta */
+.gold-main-btn {
+    background-color: #b5762a !important;
+    border: none !important;
+    color: #ffffff !important;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.gold-main-btn:hover {
+    background-color: #965f1f !important;
+    color: #ffffff !important;
+}
+
+/* Enlaces secundarios */
+.gold-link {
+    color: #2c5e3b;
+}
+
+.gold-link:hover {
+    color: #1a3322;
+    text-decoration: underline !important;
+}
+
+/* Texto de términos y condiciones en la parte inferior del modal */
+.modal-footer-text-figma {
+    font-size: 0.75rem;
+    color: var(--text-main, #1a3322);
+    opacity: 0.7;
+}

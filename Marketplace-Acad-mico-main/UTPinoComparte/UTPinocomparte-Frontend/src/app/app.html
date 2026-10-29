@@ -1,0 +1,22 @@
+<!-- 1. El Encabezado Global (Aparece en todas las páginas) -->
+<app-header></app-header>
+
+<!-- 2. Contenedor Dinámico: Aquí es donde Angular mostrará tu página de 'Inicio' u otras vistas -->
+<main class="custom-body">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- 3. El Pie de Página Global (Aparece en todas las páginas) -->
+<app-footer></app-footer>
+
+<style>
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* Hace que el contenido principal ocupe el espacio disponible y empuje el footer hacia abajo */
+}
+</style>

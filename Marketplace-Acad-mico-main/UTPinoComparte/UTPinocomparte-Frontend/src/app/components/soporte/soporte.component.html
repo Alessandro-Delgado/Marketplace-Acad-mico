@@ -1,0 +1,146 @@
+<!-- SECCIÓN CONTÁCTENOS / SOPORTE -->
+<section class="container-fluid px-4 px-lg-5 py-5 content-section-figma">
+
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+        <!-- Botón Volver adaptado con routerLink de Angular -->
+        <a routerLink="/inicio"
+            class="btn btn-sm outline-custom-btn d-inline-flex align-items-center gap-2 text-decoration-none">
+            <i class="fa-solid fa-arrow-left"></i> Volver
+        </a>
+
+        <div>
+            <span class="badge badge-figma py-2 px-3 fw-medium" style="font-size: 0.75rem;">Centro de soporte</span>
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <h2 class="fw-bold title-figma mb-1" style="font-size: 2rem;">Centro de ayuda y soporte</h2>
+        <p class="text-muted small">Si tuviste un problema con una compra, venta o intercambio, estamos aquí para
+            ayudarte.</p>
+    </div>
+
+    <div class="row g-5">
+        <div class="col-12 col-lg-8">
+            <form id="contactForm">
+
+                <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+                    <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase" style="letter-spacing: 0.5px;">
+                        1. Tipo de problema
+                    </h5>
+                    <div>
+                        <select class="form-select form-control-figma py-2 shadow-none" required>
+                            <option value="" selected disabled>Selecciona el motivo de tu reporte...</option>
+                            <option value="pago">Problema con un pago (Cobro indebido / No reflejado)</option>
+                            <option value="material">Material o producto equivocado / defectuoso</option>
+                            <option value="estafa">Incidencia o sospecha de estafa con usuario</option>
+                            <option value="otro">Otro inconveniente en compra / venta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+                    <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase" style="letter-spacing: 0.5px;">
+                        2. Datos de contacto
+                    </h5>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label class="form-label small fw-semibold">Nombre completo <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-figma shadow-none"
+                                placeholder="Ej: Ana García López" required>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label small fw-semibold">Correo electrónico <span
+                                    class="text-danger">*</span></label>
+                            <input type="email" class="form-control form-control-figma shadow-none"
+                                placeholder="tu@correo.edu.pe" required>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label small fw-semibold">Teléfono (opcional)</label>
+                            <input type="tel" class="form-control form-control-figma shadow-none"
+                                placeholder="+51 999 000 000">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label small fw-semibold">N° de transacción (opcional)</label>
+                            <input type="text" class="form-control form-control-figma shadow-none"
+                                placeholder="Ej: TXN-20260813-0042">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+                    <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase" style="letter-spacing: 0.5px;">
+                        3. Describe el problema
+                    </h5>
+                    <div class="mb-1">
+                        <label class="form-label small fw-semibold">Descripción detallada <span
+                                class="text-danger">*</span></label>
+                        <textarea class="form-control form-control-figma shadow-none" rows="4" maxlength="1000"
+                            placeholder="Describe qué ocurrió, cuándo fue, qué artículo o pago estuvo involucrado y cualquier detalle relevante para agilizar la resolución..."
+                            oninput="document.getElementById('charCount').innerText = this.value.length"
+                            required></textarea>
+                        <div class="text-end text-muted small mt-1" style="font-size: 0.75rem;"><span
+                                id="charCount">0</span> / 1000</div>
+                    </div>
+                </div>
+
+                <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+                    <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase" style="letter-spacing: 0.5px;">
+                        4. Evidencia (opcional)
+                    </h5>
+                    <div class="upload-dropzone p-4 text-center rounded-3 border border-dashed"
+                        style="cursor: pointer;">
+                        <i class="fa-solid fa-cloud-arrow-up fs-3 gold-text mb-2"></i>
+                        <p class="small mb-1">Arrastra archivos aquí o <span
+                                class="gold-link fw-semibold">selecciona</span></p>
+                        <p class="text-muted mb-0" style="font-size: 0.75rem;">Capturas de pantalla, fotos del artículo,
+                            comprobantes de pago (máx. 5 MB c/u)</p>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn gold-main-btn w-100 py-3 fw-bold rounded-3 shadow-sm">
+                    Enviar reporte
+                </button>
+
+            </form>
+        </div>
+
+        <div class="col-12 col-lg-4">
+
+            <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+                <h5 class="fw-bold card-title-figma mb-3 fs-6">
+                    <i class="fa-solid fa-headset gold-text me-2"></i> Contacto directo
+                </h5>
+                <p class="small text-muted mb-2">Correo: <a href="mailto:soporte@utpinocomparte.pe"
+                        class="gold-link text-decoration-none">soporte@utpinocomparte.pe</a></p>
+                <p class="small text-muted mb-2">Teléfono central: +51 (01) 000-0000</p>
+                <hr class="border-secondary opacity-25 my-3">
+                <p class="text-muted mb-0" style="font-size: 0.75rem;">Lunes a viernes, 8:00 am – 6:00 pm (hora Lima)
+                </p>
+            </div>
+
+            <div class="card card-figma-bg p-4 border rounded-4 shadow-sm">
+                <h5 class="fw-bold card-title-figma mb-3 fs-6">
+                    Consejos antes de reportar
+                </h5>
+                <ul class="list-unstyled small text-muted d-flex flex-column gap-2 mb-0" style="line-height: 1.5;">
+                    <li class="d-flex align-items-start gap-2">
+                        <span class="gold-text">•</span> Intentar primero contactar directamente al vendedor/comprador
+                        por el chat.
+                    </li>
+                    <li class="d-flex align-items-start gap-2">
+                        <span class="gold-text">•</span> Guarda capturas del anuncio, mensajes y comprobantes de pago.
+                    </li>
+                    <li class="d-flex align-items-start gap-2">
+                        <span class="gold-text">•</span> Si pagaste con nuestra plataforma, el reembolso está
+                        garantizado.
+                    </li>
+                    <li class="d-flex align-items-start gap-2">
+                        <span class="gold-text">•</span> Incluye el número de transacción para agilizar la resolución.
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,62 @@
+
+/* ========================================================================== */
+/* 3. COMPONENTES DE LA BARRA DE NAVEGACIÓN (NAVBAR)                          */
+/* ========================================================================== */
+
+/* Contenedor principal de la barra de navegación superior */
+.nav-figma {
+    background-color: var(--card-bg) !important;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Texto del logotipo y título de la marca en la barra */
+.brand-text {
+    color: var(--text-main) !important;
+}
+
+/* Dimensiones y ajuste de la imagen del logotipo */
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+/* Campo de búsqueda interactivo en la barra superior */
+.search-input-figma {
+    background-color: var(--bg-main) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+/* Texto guía (placeholder) dentro del buscador */
+.search-input-figma::placeholder {
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+/* Posicionamiento y color del icono de la lupa en el buscador */
+.search-icon-pos {
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+/* Enlaces de navegación internos (Explorar, Ayuda) */
+.nav-link-figma {
+    color: var(--text-main) !important;
+}
+
+/* Botón flotante para alternar entre el modo claro y oscuro */
+.theme-btn-figma {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border-color) !important;
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
+/* Botón principal de inicio de sesión en la barra */
+.login-btn-figma {
+    background-color: var(--gold-primary) !important;
+    border-color: var(--gold-primary) !important;
+    color: #FFF !important;
+}

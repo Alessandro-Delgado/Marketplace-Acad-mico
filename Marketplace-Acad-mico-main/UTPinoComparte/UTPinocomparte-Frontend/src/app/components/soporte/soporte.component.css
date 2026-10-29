@@ -1,0 +1,29 @@
+/* ========================================================================== */
+/* 7. SECCIÓN DE CONTACTO, SOPORTE Y FORMULARIOS                              */
+/* ========================================================================== */
+
+/* Fondo general de la sección de soporte/contacto */
+.contacto-figma-bg,
+#contacto {
+    background-color: var(--bg-main) !important;
+}
+
+/* Estilo unificado para campos de texto, select y áreas de texto */
+.form-control-figma,
+.form-control,
+.form-select {
+    background-color: var(--bg-main) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+/* Zona interactiva de carga de archivos por arrastre */
+.upload-dropzone {
+    background-color: var(--bg-main) !important;
+    border: 1px dashed var(--border-color) !important;
+}
+
+/* Enlaces con acento dorado en todo el sitio */
+.gold-link {
+    color: var(--gold-primary) !important;
+}

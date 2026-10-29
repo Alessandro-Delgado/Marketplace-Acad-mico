@@ -1,0 +1,58 @@
+<article class="product-card">
+
+  <a
+    class="product-image-link"
+    [routerLink]="product.productoid ? ['/producto', product.productoid] : ['/']">
+
+    <img
+      class="product-image"
+      [src]="product.img_prod || 'imgs/logo.png.jpeg'"
+      [alt]="product.nom_prod">
+
+    <span class="type-badge" [class.exchange]="esIntercambio">
+      {{ esIntercambio ? 'Intercambio' : 'Venta' }}
+    </span>
+  </a>
+
+  <div class="product-body">
+
+    <span class="category">
+      {{ product.categoria || 'Producto' }}
+    </span>
+
+    <h3>{{ product.nom_prod }}</h3>
+
+    <div class="product-meta">
+      <strong *ngIf="!esIntercambio; else exchangeLabel">
+        {{
+          product.precio != null
+            ? ('S/ ' + product.precio.toFixed(2))
+            : 'Precio por definir'
+        }}
+      </strong>
+
+      <ng-template #exchangeLabel>
+        <strong class="exchange-text">
+          Se busca intercambio
+        </strong>
+      </ng-template>
+
+      <span *ngIf="product.stock !== undefined" class="stock">
+        Stock: {{ product.stock }}
+      </span>
+    </div>
+
+    <span *ngIf="product.estado" class="status">
+      {{ product.estado }}
+    </span>
+
+    <button
+      type="button"
+      class="contact-button"
+      (click)="contactarVendedor()">
+      <i class="fa-regular fa-comments"></i>
+      Contactar vendedor
+    </button>
+
+  </div>
+</article>

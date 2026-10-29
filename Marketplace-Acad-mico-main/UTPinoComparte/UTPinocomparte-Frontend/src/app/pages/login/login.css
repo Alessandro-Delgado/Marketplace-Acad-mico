@@ -1,0 +1,133 @@
+/* ================================================= */
+/* ESTILOS DEL MODAL - UTPINO COMPARTE */
+/* ================================================= */
+
+/* Capa de superposición oscura de fondo para el modal */
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+
+/* 2. Caja del modal con el color crema/marfil y los bordes precisos */
+.custom-modal-dialog {
+    width: 100%;
+    max-width: 460px;
+    background-color: #FDF9F5 !important; /* Color crema suave del diseño original */
+    border-radius: 20px !important;       /* Curva de las esquinas idéntica al Figma */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); /* Sombra flotante profunda */
+    z-index: 10000;
+    padding: 32px 24px;
+    position: relative;
+}
+
+/* Animación de escala para la aparición del modal */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Fondo y colores principales adaptados dentro de la caja del modal */
+.modal-figma-bg {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+}
+
+/* Dimensiones y ajuste para el logotipo interior del modal */
+.modal-logo-figma {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* Título principal dentro de la ventana de autenticación */
+.modal-title-figma {
+    color: var(--text-main) !important;
+}
+
+/* Párrafo descriptivo dentro de la ventana modal */
+.modal-desc-figma {
+    color: var(--text-main) !important;
+    opacity: 0.7;
+}
+
+/* Botones de inicio de sesión social (Google / Microsoft) */
+.social-btn-figma {
+    background-color: var(--bg-main) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+/* Botón alternativo para continuar con correo institucional */
+.inst-btn-figma {
+    background-color: transparent !important;
+    border: 1px dashed var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+/* Línea divisoria central con texto separador "o" */
+.divider-line-figma {
+    border-bottom: 1px solid var(--border-color);
+    height: 10px;
+}
+
+/* Texto central que acompaña a la línea divisoria del modal */
+.divider-text-figma {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+/* Texto de términos y condiciones en la parte inferior del modal */
+.modal-footer-text-figma {
+    font-size: 0.75rem;
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+/* Color de los inputs de Login estilo Figma */
+.form-control-figma {
+    background-color: #f1bfb8 !important; /* Tono rosado/salmón claro del diseño */
+    border: none !important;
+    color: #4a3e3d !important;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+}
+
+.form-control-figma::placeholder {
+    color: #8c7370 !important;
+}
+
+.form-control-figma:focus {
+    background-color: #ebb0a8 !important;
+    box-shadow: none !important;
+}
+
+/* Botón principal estilo Figma */
+.gold-main-btn {
+    background-color: #b5762a !important; /* Tono café/dorado de la imagen */
+    border: none !important;
+    color: #ffffff !important;
+    transition: background-color 0.2s ease;
+}
+
+.gold-main-btn:hover {
+    background-color: #965f1f !important;
+    color: #ffffff !important;
+}

@@ -1,0 +1,438 @@
+
+<!-- SECCIÓN HERO EDITORIAL -->
+<main class="container-fluid px-4 px-lg-5 py-5 hero-figma-bg">
+  <div class="row align-items-center g-5">
+    <div class="col-lg-7">
+      <span class="badge rounded-pill mb-3 px-3 py-2 fw-semibold badge-figma">
+        <i class="fa-solid fa-bolt"></i> Plataforma de intercambio universal
+      </span>
+
+      <h1 class="display-4 fw-bold mb-4 title-figma">
+        Compra, vende e <span class="gold-text">intercambia</span> cualquier cosa
+      </h1>
+
+      <p class="desc-figma mb-4 fs-6">
+        La plataforma donde compradores y vendedores de la UTP se encuentran para negociar sin
+        intermediarios con total seguridad.
+      </p>
+
+      <div class="d-flex flex-wrap gap-3 mb-5">
+        <button
+          routerLink="/publicar"
+          class="btn btn-lg rounded-3 px-4 fw-bold gold-main-btn">
+          Empezar ahora <i class="fa-solid fa-arrow-right ms-2"></i>
+        </button>
+
+        <a
+          routerLink="/soporte"
+          class="btn btn-lg rounded-3 px-4 fw-bold outline-custom-btn text-decoration-none d-flex align-items-center">
+          Centro de ayuda
+        </a>
+      </div>
+
+      <!-- Estadísticas de plataforma -->
+      <div class="row g-4">
+        <div class="col-4">
+          <h3 class="fw-bold mb-0 fs-2 stat-num">48.200<span class="gold-text">+</span></h3>
+          <small class="stat-label">Artículos activos</small>
+        </div>
+        <div class="col-4">
+          <h3 class="fw-bold mb-0 fs-2 stat-num">12.500</h3>
+          <small class="stat-label">Usuarios verificados</small>
+        </div>
+        <div class="col-4">
+          <h3 class="fw-bold mb-0 fs-2 stat-num">$4.8<span class="gold-text">B</span></h3>
+          <small class="stat-label">En transacciones</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta destacada -->
+    <div class="col-lg-5 d-flex justify-content-center">
+      <div class="card border-0 shadow-lg p-3 rounded-4 position-relative card-figma-bg"
+        style="width: 360px;">
+
+        <span class="badge position-absolute top-0 start-0 m-4 px-3 py-2 rounded-2 fw-bold gold-badge">
+          Destacado
+        </span>
+
+        <div class="overflow-hidden rounded-3 mb-3" style="height: 220px; background: #111;">
+          <img
+            src="/imgs/Iphone.webp"
+            class="w-100 h-100 object-fit-cover opacity-75 transition-scale"
+            style="transition: transform 0.3s ease;"
+            onmouseover="this.style.transform='scale(1.08)'"
+            onmouseout="this.style.transform='scale(1)'"
+            alt="iPhone">
+        </div>
+
+        <div class="card-body p-0">
+          <small class="card-sub">Electrónica · Excelente estado</small>
+          <h5 class="fw-bold card-title-figma mt-1 mb-3">
+            iPhone 15 Pro 256GB Titanio Natural
+          </h5>
+
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="fs-4 fw-bold price-main">S/ 850</span>
+            <span class="text-decoration-line-through price-old small">S/ 990</span>
+            <span class="ms-auto fw-bold small gold-text">
+              <i class="fa-solid fa-star"></i> 4.9
+            </span>
+          </div>
+
+          <div class="location-text small d-flex align-items-center gap-1">
+            <i class="fa-solid fa-location-dot"></i> Lima, Perú
+          </div>
+        </div>
+
+        <div
+          class="position-absolute px-3 py-2 rounded-pill shadow-sm small fw-bold text-success d-flex align-items-center gap-2 secure-badge"
+          style="bottom: -15px; right: 20px;">
+          <i class="fa-solid fa-lock"></i> Pago seguro
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- SECCIÓN DE ARTÍCULOS Y FILTROS -->
+<section class="container-fluid px-4 px-lg-5 py-5 content-section-figma">
+
+  <!-- Filtros por categoría -->
+  <div class="d-flex flex-wrap gap-2 mb-3 overflow-auto pb-2">
+    <button
+      class="btn px-3 py-2 rounded-pill fw-bold category-btn"
+      [ngClass]="activeCategory === 'all' ? 'category-btn-active' : 'fw-medium'"
+      (click)="filterCategory('all')">
+      <i class="fa-solid fa-house-chimney me-1"></i> Todo
+    </button>
+
+    <button
+      class="btn px-3 py-2 rounded-pill category-btn"
+      [ngClass]="activeCategory === 'electronica' ? 'category-btn-active fw-bold' : 'fw-medium'"
+      (click)="filterCategory('electronica')">
+      <i class="fa-solid fa-laptop me-1"></i> Electrónica
+    </button>
+
+    <button
+      class="btn px-3 py-2 rounded-pill category-btn"
+      [ngClass]="activeCategory === 'ropa' ? 'category-btn-active fw-bold' : 'fw-medium'"
+      (click)="filterCategory('ropa')">
+      <i class="fa-solid fa-shirt me-1"></i> Ropa
+    </button>
+
+    <button
+      class="btn px-3 py-2 rounded-pill category-btn"
+      [ngClass]="activeCategory === 'vehiculos' ? 'category-btn-active fw-bold' : 'fw-medium'"
+      (click)="filterCategory('vehiculos')">
+      <i class="fa-solid fa-car me-1"></i> Vehículos
+    </button>
+
+    <button
+      class="btn px-3 py-2 rounded-pill category-btn"
+      [ngClass]="activeCategory === 'libros' ? 'category-btn-active fw-bold' : 'fw-medium'"
+      (click)="filterCategory('libros')">
+      <i class="fa-solid fa-book me-1"></i> Libros
+    </button>
+
+    <button
+      class="btn px-3 py-2 rounded-pill category-btn"
+      [ngClass]="activeCategory === 'arte' ? 'category-btn-active fw-bold' : 'fw-medium'"
+      (click)="filterCategory('arte')">
+      <i class="fa-solid fa-palette me-1"></i> Arte
+    </button>
+
+    <button
+      class="btn px-3 py-2 rounded-pill category-btn"
+      [ngClass]="activeCategory === 'deportes' ? 'category-btn-active fw-bold' : 'fw-medium'"
+      (click)="filterCategory('deportes')">
+      <i class="fa-solid fa-futbol me-1"></i> Deportes
+    </button>
+
+    <button
+      class="btn px-3 py-2 rounded-pill category-btn"
+      [ngClass]="activeCategory === 'coleccion' ? 'category-btn-active fw-bold' : 'fw-medium'"
+      (click)="filterCategory('coleccion')">
+      <i class="fa-solid fa-gem me-1"></i> Colección
+    </button>
+  </div>
+
+  <!-- Pestañas -->
+  <div class="d-flex gap-3 mb-4 border-bottom pb-2 tabs-figma-container">
+    <button
+      class="btn btn-link text-decoration-none tab-btn p-0 pb-2"
+      [ngClass]="activeTab === 'all' ? 'fw-bold tab-active' : 'fw-semibold tab-inactive'"
+      (click)="filterTab('all')">
+      Todos
+    </button>
+
+    <button
+      class="btn btn-link text-decoration-none tab-btn p-0 pb-2"
+      [ngClass]="activeTab === 'venta' ? 'fw-bold tab-active' : 'fw-semibold tab-inactive'"
+      (click)="filterTab('venta')">
+      En venta
+    </button>
+
+    <button
+      class="btn btn-link text-decoration-none tab-btn p-0 pb-2"
+      [ngClass]="activeTab === 'intercambio' ? 'fw-bold tab-active' : 'fw-semibold tab-inactive'"
+      (click)="filterTab('intercambio')">
+      Intercambio
+    </button>
+  </div>
+
+  <!-- Resultados -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold title-figma mb-0">Artículos disponibles</h2>
+    <span class="text-muted small">{{ filteredItems.length }} resultados</span>
+  </div>
+
+  <!-- TARJETAS REUTILIZABLES -->
+  <div class="row g-4">
+    <div
+      *ngFor="let item of filteredItems"
+      class="col-12 col-sm-6 col-lg-3 item-card">
+
+      
+<app-product-card
+  [product]="{
+    productoid: item.id,
+    usuarioid: item.usuarioid,
+    nom_prod: item.title,
+    img_prod: item.image,
+    precio: convertirPrecio(item.price),
+    categoria: item.category,
+    tipoPublicacion: convertirTipo(item.type),
+    estado: item.subtitle
+  }"
+  (contactar)="contactarDesdeTarjeta($event)">
+</app-product-card>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN CÓMO FUNCIONA -->
+<section class="container-fluid px-4 px-lg-5 py-5 how-section-figma">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold title-figma mb-1">¿Cómo funciona?</h2>
+    <p class="text-muted small">Tres pasos para tu primera transacción</p>
+  </div>
+
+  <div class="row g-4 justify-content-center">
+
+    <div class="col-12 col-md-4">
+      <div class="card border-0 shadow-sm p-4 rounded-4 h-100 card-figma-bg how-step-card">
+        <span class="how-step-bg-number">01</span>
+        <div class="how-step-content">
+          <div class="mb-3 d-inline-flex align-items-center justify-content-center rounded-3 bg-white shadow-sm how-icon-box">
+            <i class="fa-solid fa-plus gold-text"></i>
+          </div>
+          <h5 class="fw-bold card-title-figma mb-2">Publica tu artículo</h5>
+          <p class="card-sub small mb-0">
+            Agrega fotos, descripción y precio en menos de 2 minutos.
+            Elige entre vender o intercambiar.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card border-0 shadow-sm p-4 rounded-4 h-100 card-figma-bg how-step-card">
+        <span class="how-step-bg-number">02</span>
+        <div class="how-step-content">
+          <div class="mb-3 d-inline-flex align-items-center justify-content-center rounded-3 bg-white shadow-sm how-icon-box">
+            <i class="fa-solid fa-magnifying-glass gold-text"></i>
+          </div>
+          <h5 class="fw-bold card-title-figma mb-2">Conecta con compradores</h5>
+          <p class="card-sub small mb-0">
+            Recibe mensajes directos de interesados. Negocia el precio o propón un intercambio.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card border-0 shadow-sm p-4 rounded-4 h-100 card-figma-bg how-step-card">
+        <span class="how-step-bg-number">03</span>
+        <div class="how-step-content">
+          <div class="mb-3 d-inline-flex align-items-center justify-content-center rounded-3 bg-white shadow-sm how-icon-box">
+            <i class="fa-solid fa-shield-halved gold-text"></i>
+          </div>
+          <h5 class="fw-bold card-title-figma mb-2">Cierra con seguridad</h5>
+          <p class="card-sub small mb-0">
+            Utiliza nuestro sistema de pago protegido. Liberamos el dinero cuando confirmas la entrega.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER Y CTA -->
+<div class="container-fluid px-4 px-lg-5 py-4 footer-figma">
+  <div class="row text-center gy-3 mb-5">
+    <div class="col-6 col-md-3">
+      <span class="small text-muted d-flex align-items-center justify-content-center gap-2">
+        <i class="fa-solid fa-shield-halved gold-text"></i> Pagos 100% protegidos
+      </span>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <span class="small text-muted d-flex align-items-center justify-content-center gap-2">
+        <i class="fa-solid fa-arrow-trend-up gold-text"></i> +48.000 artículos activos
+      </span>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <span class="small text-muted d-flex align-items-center justify-content-center gap-2">
+        <i class="fa-regular fa-star gold-text"></i> Vendedores verificados
+      </span>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <span class="small text-muted d-flex align-items-center justify-content-center gap-2">
+        <i class="fa-solid fa-right-left gold-text"></i> Intercambios seguros
+      </span>
+    </div>
+  </div>
+
+  <div class="row justify-content-center pb-4">
+    <div class="col-12 col-lg-10">
+      <div class="card card-figma-bg border-0 shadow-sm p-5 text-center rounded-4">
+        <h3 class="fw-bold title-figma mb-2" style="font-size: 1.8rem;">
+          ¿Tienes algo que vender o intercambiar?
+        </h3>
+
+        <p class="text-muted small mb-4">
+          Únete a más de 12.500 usuarios que ya usan UTPINO COMPARTE
+          para dar nueva vida a sus artículos.
+        </p>
+
+        <div>
+          <button
+            type="button"
+            class="btn gold-main-btn px-4 py-2 rounded-pill fw-bold"
+            routerLink="/publicar">
+            + Publicar mi primer artículo
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL ANTIGUO DE ARTÍCULOS -->
+<div id="customArticleModal" class="custom-modal-overlay" *ngIf="isArticleModalOpen">
+  <div class="custom-modal-dialog">
+    <div class="modal-content border-0 rounded-4 p-3 modal-figma-bg shadow-lg position-relative">
+
+      <div class="modal-header border-0 pb-0 justify-content-end">
+        <button
+          type="button"
+          class="btn-close shadow-none"
+          (click)="isArticleModalOpen = false">
+        </button>
+      </div>
+
+      <div class="modal-body text-center px-4 pt-0 pb-4">
+        <h4 class="fw-bold modal-title-figma mb-2">Añadir nuevo artículo</h4>
+
+        <p class="modal-desc-figma small mb-4">
+          Completa los datos para publicar tu producto en UTPINO COMPARTE.
+        </p>
+
+        <form (ngSubmit)="onAddArticle()" class="text-start">
+          <div class="mb-3">
+            <label class="form-label fw-bold small">
+              Título del artículo <span class="text-danger">*</span>
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="newArticle.title"
+              name="title"
+              class="form-control form-control-figma rounded-pill shadow-none"
+              placeholder="Ej: iPhone 15 Pro, Libro de Cálculo..."
+              required>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold small">
+                Precio (S/) <span class="text-danger">*</span>
+              </label>
+
+              <input
+                type="number"
+                step="0.01"
+                [(ngModel)]="newArticle.price"
+                name="price"
+                class="form-control form-control-figma rounded-pill shadow-none"
+                placeholder="Ej: 150.00"
+                required>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold small">
+                Categoría <span class="text-danger">*</span>
+              </label>
+
+              <select
+                [(ngModel)]="newArticle.category"
+                name="category"
+                class="form-select form-control-figma rounded-pill shadow-none"
+                required>
+                <option value="" disabled>Selecciona...</option>
+                <option value="electronica">Electrónica</option>
+                <option value="ropa">Ropa</option>
+                <option value="hogar">Hogar</option>
+                <option value="vehiculos">Vehículos</option>
+                <option value="libros">Libros</option>
+                <option value="arte">Arte</option>
+                <option value="deportes">Deportes</option>
+                <option value="coleccion">Colección</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold small">
+              Estado del artículo <span class="text-danger">*</span>
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="newArticle.subtitle"
+              name="subtitle"
+              class="form-control form-control-figma rounded-pill shadow-none"
+              placeholder="Ej: Como nuevo, Buen estado..."
+              required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold small">
+              URL de la Imagen <span class="text-danger">*</span>
+            </label>
+
+            <input
+              type="url"
+              [(ngModel)]="newArticle.image"
+              name="image"
+              class="form-control form-control-figma rounded-pill shadow-none"
+              placeholder="https://ejemplo.com/imagen.jpg"
+              required>
+          </div>
+
+          <button
+            type="submit"
+            class="btn w-100 py-2 rounded-pill fw-bold gold-main-btn mb-2">
+            Publicar artículo
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <div class="card p-4 shadow-sm">
+    <div class="row align-items-center">
+      <!-- Avatar real -->
+      <div class="col-md-3 text-center">
+        <img [src]="usuario?.img_perfil || 'Avatar-perfil-prueba.jpeg'" alt="Avatar" class="rounded-circle img-fluid" style="width: 120px; height: 120px; object-fit: cover;">
+      </div>
+      
+      <!-- Información del Perfil -->
+      <div class="col-md-9">
+        <h2>{{ usuario?.nom }} {{ usuario?.appell }}</h2>
+        
+        <!-- Código de estudiante -->
+        <p class="text-primary fw-bold mb-1">Código UTP: {{ usuario?.usuario?.cod_est || 'Cargando...' }}</p>
+        
+        <!-- Teléfono -->
+        <p class="text-muted mb-3">Teléfono: {{ usuario?.telef || 'No registrado' }}</p>
+        
+        <div class="d-flex gap-3">
+          <!-- Ojo aquí: usamos 'correo' tal como está en tu user.model.ts -->
+          <span><strong>Correo:</strong> {{ usuario?.usuario?.correo }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

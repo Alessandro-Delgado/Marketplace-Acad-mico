@@ -1,0 +1,70 @@
+
+<div class="chat-container">
+
+  <aside class="lista-chats">
+    <h5>Mis chats</h5>
+
+    <p *ngIf="conversaciones.length === 0">
+      Todavía no tienes conversaciones.
+    </p>
+
+    <button
+      *ngFor="let chat of conversaciones"
+      type="button"
+      class="chat-item"
+      [class.chat-seleccionado]="chat.conversacionid === conversacionId"
+      (click)="seleccionarConversacion(chat.conversacionid)">
+
+      <strong>{{ obtenerNombreChat(chat) }}</strong>
+      <small>{{ chat.nombre }}</small>
+    </button>
+  </aside>
+
+  <section class="chat-contenido">
+    <div class="chat-header">
+      <h5>
+        {{ conversacionId ? 'Conversación' : 'Selecciona un chat' }}
+      </h5>
+    </div>
+
+    <div class="error-mensaje" *ngIf="errorMensaje">
+      {{ errorMensaje }}
+    </div>
+
+    <div class="chat-messages" *ngIf="conversacionId">
+      <p *ngIf="cargando">Cargando mensajes...</p>
+
+      <div
+        *ngFor="let msg of mensajes"
+        class="mensaje"
+        [ngClass]="{
+          'mensaje-mio': msg.idRemitente === idUsuarioActual,
+          'mensaje-otro': msg.idRemitente !== idUsuarioActual
+        }">
+
+        <p>{{ msg.contenido }}</p>
+        <span *ngIf="msg.fechaEnvio">
+          {{ msg.fechaEnvio | date:'shortTime' }}
+        </span>
+      </div>
+    </div>
+
+    <div class="chat-input-area" *ngIf="conversacionId">
+      <input
+        type="text"
+        [(ngModel)]="nuevoMensajeTexto"
+        (keyup.enter)="enviar()"
+        placeholder="Escribe un mensaje..."
+        class="form-control">
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        [disabled]="enviando || !nuevoMensajeTexto.trim()"
+        (click)="enviar()">
+        {{ enviando ? 'Enviando...' : 'Enviar' }}
+      </button>
+    </div>
+  </section>
+
+</div>

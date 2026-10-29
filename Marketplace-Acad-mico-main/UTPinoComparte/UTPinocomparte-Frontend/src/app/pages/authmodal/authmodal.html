@@ -1,0 +1,61 @@
+<div class="custom-modal-overlay">
+    <div class="custom-modal-dialog">
+        <div class="modal-content border-0 p-3 modal-figma-bg shadow-lg position-relative">
+
+            <!-- BOTÓN CERRAR -->
+            <div class="modal-header border-0 pb-0 justify-content-end">
+                <button type="button" routerLink="/inicio" class="btn-close shadow-none"></button>
+            </div>
+
+            <div class="modal-body text-center px-3 pt-0 pb-3">
+                <!-- LOGO -->
+                <div class="mb-2">
+                    <img src="assets/imgs/logo.jpeg" alt="Logo UTPINO"
+                        class="rounded-circle border border-2 border-white shadow-sm modal-logo-figma">
+                </div>
+
+                <h4 class="fw-bold modal-title-figma mb-2">Bienvenido a UTPINO<br>COMPARTE</h4>
+                <p class="modal-desc-figma mb-3">Inicia sesión con tu cuenta institucional para comprar, vender e intercambiar.</p>
+
+                <!-- LÍNEA SEPARADORA SUPERIOR SUTIL -->
+                <hr class="text-muted opacity-25 mb-3">
+
+                <!-- BOTÓN MICROSOFT (Listo para programar después) -->
+                <button type="button" (click)="loginConMicrosoft()" class="btn w-100 py-2 mb-2 social-btn-figma d-flex align-items-center justify-content-center shadow-sm">
+                    <i class="fa-brands fa-microsoft text-primary me-2 fs-5"></i> Continuar con cuenta de Microsoft
+                </button>
+
+                <!-- SEPARADOR: o regístrate -->
+                <div class="position-relative my-3">
+                    <hr class="text-muted opacity-25">
+                    <span class="position-absolute top-50 start-50 translate-middle px-2 bg-white text-muted small" style="background-color: #fcf8f2 !important;">
+                        o regístrate
+                    </span>
+                </div>
+
+                <!-- BOTÓN CORREO INSTITUCIONAL (Va al Registro) -->
+                <button type="button" routerLink="/register" class="btn w-100 py-2 gold-outline-btn mb-3" style="border-style: dashed !important;">
+                    Continuar con correo institucional
+                </button>
+
+                <!-- SEPARADOR: ¿ya tienes cuenta? -->
+                <div class="position-relative my-3">
+                    <hr class="text-muted opacity-25">
+                    <span class="position-absolute top-50 start-50 translate-middle px-2 text-muted small" style="background-color: #fcf8f2 !important;">
+                        ¿ya tienes cuenta?
+                    </span>
+                </div>
+
+                <!-- BOTÓN INICIAR SESIÓN (Va al Login) -->
+                <button type="button" routerLink="/login" class="btn w-100 py-2 gold-main-btn mb-3 fw-bold">
+                    Iniciar sesión
+                </button>
+
+                <!-- TÉRMINOS Y CONDICIONES -->
+                <div class="text-muted terms-text small">
+                    Al continuar, aceptas los <a href="#" class="gold-link text-decoration-none">Términos de uso</a> y la <a href="#" class="gold-link text-decoration-none">Política de privacidad</a> de UTPINO COMPARTE.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

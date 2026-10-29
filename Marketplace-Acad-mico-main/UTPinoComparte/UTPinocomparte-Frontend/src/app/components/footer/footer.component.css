@@ -1,0 +1,9 @@
+/* ========================================================================== */
+/* 8. PIE DE PÁGINA (FOOTER)                                                  */
+/* ========================================================================== */
+
+/* Estructura y colores del pie de página corporativo */
+.footer-figma {
+    background-color: var(--card-bg) !important;
+    border-top: 1px solid var(--border-color);
+}

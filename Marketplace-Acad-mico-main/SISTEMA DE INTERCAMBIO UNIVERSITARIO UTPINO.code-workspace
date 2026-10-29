@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "SISTEMA DE INTERCAMBIO UNIVERSITARIO UTPINO"
+		},
+		{
+			"path": "UTPino+Comparte"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "UTPino+Comparte"
+	}
+}

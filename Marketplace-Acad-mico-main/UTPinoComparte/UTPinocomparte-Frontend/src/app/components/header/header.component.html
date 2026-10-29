@@ -1,0 +1,115 @@
+<!-- SECCIÓN HEADER O NAVBAR (BARRA DE NAVEGACIÓN) -->
+<header class="navbar navbar-expand-lg px-4 py-3 shadow-sm" style="background-color: #fcf4ee;">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        
+        <!-- LOGO Y TÍTULO -->
+        <a class="navbar-brand d-flex align-items-center text-decoration-none" routerLink="/inicio">
+            <img src="assets/imgs/logo.jpeg" alt="Logo" class="rounded-circle border border-2 border-white me-2 brand-logo" style="width: 40px; height: 40px; object-fit: cover;">
+            <span class="fw-bold" style="color: #2b221e; font-family: 'Georgia', serif; font-size: 1.2rem;">UTPINO COMPARTE</span>
+        </a>
+
+        <!-- BARRA DE BÚSQUEDA CENTRAL -->
+        <div class="flex-grow-1 mx-4 d-none d-md-block" style="max-width: 500px;">
+            <div class="input-group rounded-pill overflow-hidden border" style="background-color: #f2dbcc; border-color: #e0b8ab !important;">
+                <span class="input-group-text bg-transparent border-0 ps-3 text-muted">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" class="form-control bg-transparent border-0 shadow-none py-2 text-dark" placeholder="Buscar artículos, marcas, categorías..." style="font-size: 0.9rem;">
+            </div>
+        </div>
+
+        <!-- ACCIONES DE LA DERECHA -->
+        <div class="d-flex align-items-center gap-3">
+            <a routerLink="/explorar" class="text-decoration-none text-dark fw-medium" style="font-size: 0.95rem;">Explorar</a>
+
+<a routerLink="/ayuda" class="text-decoration-none text-dark fw-medium" style="font-size: 0.95rem;">Ayuda</a>
+
+<a *ngIf="usuarioLogueado"
+   routerLink="/chat"
+   class="text-decoration-none text-dark fw-medium"
+   style="font-size: 0.95rem; white-space: nowrap;">
+    <i class="fa-regular fa-comments me-1"></i> Mis chats
+</a>
+            <!-- BOTÓN MODO OSCURO -->
+            <button class="btn btn-light rounded-circle border shadow-sm p-2 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                <i class="fa-regular fa-moon text-secondary"></i>
+            </button>
+
+            <!-- ZONA CONDICIONAL: SI ESTÁ LOGUEADO (Imagen 1) -->
+            <div *ngIf="usuarioLogueado; else modoInvitado" class="d-flex align-items-center gap-3">
+                <!-- BOTÓN PUBLICAR -->
+                <button type="button" class="btn text-white px-4 rounded-pill fw-medium shadow-sm" style="background-color: #b08968; font-size: 0.9rem;" (click)="verificarAccesoPublicar()">
+                    <i class="fa-solid fa-plus me-1"></i> Publicar
+                </button>
+
+                <!-- PERFIL DE USUARIO -->
+                <a routerLink="/perfil" class="d-flex align-items-center text-decoration-none">
+                    <div class="rounded-circle overflow-hidden d-flex align-items-center justify-content-center fw-bold text-white shadow-sm" style="width: 40px; height: 40px; background-color: #c49a7a; border: 2px solid #fff;">
+                        <img *ngIf="fotoUsuario; else soloInicial" [src]="fotoUsuario" alt="Foto de perfil" style="width: 100%; height: 100%; object-fit: cover;">
+                        <ng-template #soloInicial>
+                            <span style="font-size: 1rem;">{{ inicialUsuario }}</span>
+                        </ng-template>
+                    </div>
+                </a>
+
+                <!-- BOTÓN CERRAR SESIÓN -->
+                <button class="btn btn-outline-danger btn-sm rounded-pill px-3 py-1 fw-medium" style="font-size: 0.85rem;" (click)="cerrarSesion()">
+                    <i class="fa-solid fa-right-from-bracket me-1"></i> Salir
+                </button>
+            </div>
+
+            <!-- MODO INVITADO: SI NO HA INICIADO SESIÓN (Imagen 2) -->
+            <ng-template #modoInvitado>
+                <a routerLink="/auth" class="btn text-white rounded-pill px-4 py-2 fw-medium shadow-sm" style="background-color: #b5762a; font-size: 0.9rem;">
+                    Iniciar sesión
+                </a>
+            </ng-template>
+
+        </div>
+
+        <!-- VENTANA MODAL DE PUBLICACIÓN -->
+        <div class="modal fade" id="modalPublicar" tabindex="-1" aria-labelledby="modalPublicarLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border-0 shadow" style="background-color: #fcf4ee; border-radius: 15px;">
+                    
+                    <!-- Cabecera del Modal -->
+                    <div class="modal-header border-0 pb-0">
+                        <h5 class="modal-title fw-bold" id="modalPublicarLabel" style="color: #2b221e; font-family: 'Georgia', serif;">
+                            <i class="fa-solid fa-circle-plus me-2" style="color: #b08968;"></i> Nueva Publicación
+                        </h5>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Cuerpo del Modal -->
+                    <div class="modal-body px-4 py-3">
+                        <form>
+                            <div class="mb-3">
+                                <label for="tituloArticulo" class="form-label fw-medium text-dark" style="font-size: 0.9rem;">Título del artículo</label>
+                                <input type="text" class="form-control rounded-pill border-0 shadow-sm px-3 py-2" id="tituloArticulo" placeholder="¿Qué deseas compartir?" style="background-color: #f2dbcc;">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="descripcionArticulo" class="form-label fw-medium text-dark" style="font-size: 0.9rem;">Descripción</label>
+                                <textarea class="form-control border-0 shadow-sm p-3" id="descripcionArticulo" rows="3" placeholder="Detalles, categoría o estado..." style="background-color: #f2dbcc; border-radius: 12px;"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="fotoArticulo" class="form-label fw-medium text-dark" style="font-size: 0.9rem;">Imagen del artículo</label>
+                                <input type="file" class="form-control rounded-pill border-0 shadow-sm" id="fotoArticulo" style="background-color: #f2dbcc;" accept="image/*">
+                            </div>
+
+                            <!-- Botón de acción -->
+                            <div class="d-grid mt-4">
+                                <button type="button" class="btn text-white rounded-pill py-2 fw-medium shadow-sm" style="background-color: #b08968;" data-bs-dismiss="modal">
+                                    Publicar ahora
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>

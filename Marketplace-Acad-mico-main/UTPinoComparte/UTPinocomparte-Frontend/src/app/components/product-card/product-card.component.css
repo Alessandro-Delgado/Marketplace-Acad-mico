@@ -1,0 +1,118 @@
+
+.product-card {
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  background: var(--card-bg);
+  color: var(--text-main);
+  box-shadow: 0 8px 24px rgba(70, 35, 25, 0.07);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(70, 35, 25, 0.11);
+}
+
+.product-image-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: var(--bg-main);
+}
+
+.type-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--gold-primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.type-badge.exchange {
+  background: #d08a35;
+}
+
+.product-body {
+  padding: 16px;
+}
+
+.category {
+  color: var(--text-main);
+  opacity: 0.6;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+}
+
+.product-body h3 {
+  margin: 6px 0 12px;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.product-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.product-meta strong {
+  font-size: 1rem;
+}
+
+.exchange-text {
+  color: var(--gold-primary);
+}
+
+.stock,
+.status {
+  color: var(--text-main);
+  opacity: 0.65;
+  font-size: 0.8rem;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.contact-button {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 11px 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--gold-primary);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.contact-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.contact-button:focus-visible {
+  outline: 2px solid var(--text-main);
+  outline-offset: 3px;
+}

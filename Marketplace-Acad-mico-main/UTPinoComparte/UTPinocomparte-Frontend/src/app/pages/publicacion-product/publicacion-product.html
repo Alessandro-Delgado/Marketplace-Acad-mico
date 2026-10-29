@@ -1,0 +1,150 @@
+
+<section class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-7">
+      <div class="card border-0 shadow-sm rounded-4 create-product-card">
+        <div class="card-body p-4 p-lg-5">
+
+          <div class="mb-4">
+            <h1 class="fw-bold">Crear producto</h1>
+            <p class="text-muted">
+              Completa los datos para publicar tu producto.
+            </p>
+          </div>
+
+          <form #productForm="ngForm" (ngSubmit)="crearProducto()">
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">Nombre del producto *</label>
+              <input
+                type="text"
+                class="form-control"
+                name="nom_prod"
+                [(ngModel)]="producto.nom_prod"
+                required
+                minlength="3"
+                maxlength="150"
+                placeholder="Ej: Laptop Lenovo">
+            </div>
+
+            <!-- El precio solo aparece para ventas -->
+            <div class="mb-3" *ngIf="producto.tipo_publicacion === 'venta'">
+              <label class="form-label fw-bold">Precio *</label>
+              <input
+                type="number"
+                class="form-control"
+                name="precio"
+                [(ngModel)]="producto.precio"
+                required
+                min="0.01"
+                step="0.01"
+                placeholder="Ej: 1500.00">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">Stock *</label>
+              <input
+                type="number"
+                class="form-control"
+                name="stock"
+                [(ngModel)]="producto.stock"
+                required
+                min="0"
+                step="1"
+                placeholder="Ej: 5">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">Categoría *</label>
+              <select
+                class="form-select"
+                name="cat_prodid"
+                [(ngModel)]="producto.cat_prodid"
+                required>
+
+                <option [ngValue]="0" disabled>
+                  Selecciona una categoría
+                </option>
+
+                <option
+                  *ngFor="let categoria of categorias"
+                  [ngValue]="categoria.id">
+                  {{ categoria.nombre }}
+                </option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="tipo_publicacion" class="form-label fw-bold">
+                Tipo de publicación *
+              </label>
+
+              <select
+                id="tipo_publicacion"
+                class="form-select"
+                name="tipo_publicacion"
+                [(ngModel)]="producto.tipo_publicacion"
+                (ngModelChange)="cambiarTipoPublicacion($event)"
+                required>
+
+                <option value="venta">Venta</option>
+                <option value="intercambio">Intercambio</option>
+              </select>
+
+              <small class="text-muted">
+                Si eliges intercambio, no necesitas indicar un precio.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">Estado *</label>
+              <select
+                class="form-select"
+                name="estado"
+                [(ngModel)]="producto.estado"
+                required>
+
+                <option value="">Selecciona un estado</option>
+                <option value="disponible">Disponible</option>
+                <option value="agotado">Agotado</option>
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-bold">URL de imagen</label>
+              <input
+                type="url"
+                class="form-control"
+                name="img_prod"
+                [(ngModel)]="producto.img_prod"
+                placeholder="https://ejemplo.com/imagen.jpg">
+            </div>
+
+            <div *ngIf="errorMessage" class="alert alert-danger">
+              {{ errorMessage }}
+            </div>
+
+            <div class="d-flex gap-2">
+              <button
+                type="button"
+                class="btn btn-outline-secondary flex-fill"
+                (click)="cancelar()">
+                Cancelar
+              </button>
+
+              <button
+                type="submit"
+                class="btn gold-main-btn flex-fill"
+                [disabled]="productForm.invalid || loading">
+
+                <span *ngIf="!loading">Crear producto</span>
+                <span *ngIf="loading">Guardando...</span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,128 @@
+/* Fondo oscuro translúcido que cubre toda la pantalla */
+/* Fondo desenfocado y translúcido para el modal de autenticación personalizado */
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+
+/* Contenedor principal de la tarjeta modal */
+.custom-modal-dialog {
+  width: 100%;
+  max-width: 420px;
+  padding: 1rem;
+}
+
+/* Color de fondo estilo crema/marfil exacto de la tarjeta */
+.modal-figma-bg {
+  background-color: #fcf4ee !important;
+  border-radius: 1.75rem !important;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid #f0e1d5 !important;
+}
+
+/* Estilo del logotipo circular */
+.modal-logo-figma {
+  width: 68px;
+  height: 68px;
+  object-fit: cover;
+}
+
+/* Tipografía de títulos */
+.modal-title-figma {
+  color: #2b221e;
+  font-family: 'Georgia', serif;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+.modal-desc-figma {
+  color: #7a6b63;
+  font-size: 0.84rem;
+  max-width: 310px;
+  margin: 0 auto;
+}
+
+/* Botones de inicio rápido (Google / Microsoft) */
+.social-btn-figma {
+  background-color: #eed2c6 !important;
+  border: 1px solid #e0b8ab !important;
+  color: #2b221e !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 50rem !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-btn-figma:hover {
+  background-color: #e5bdaf !important;
+}
+
+/* Línea divisoria perfecta con la 'o' al centro */
+.divider-with-o {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #7a6b63;
+  font-size: 0.8rem;
+  margin: 1.1rem 0;
+}
+
+.divider-with-o::before,
+.divider-with-o::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #d9c5b8;
+}
+
+.divider-with-o span {
+  padding: 0 0.8rem;
+}
+
+/* Botón punteado de correo institucional */
+.gold-outline-btn {
+  background-color: transparent !important;
+  border: 1.5px dashed #c49a7a !important; 
+  color: #5c4033 !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 50rem !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.gold-outline-btn:hover {
+  background-color: rgba(196, 154, 122, 0.08) !important;
+}
+
+/* Enlaces y textos inferiores */
+.gold-link {
+  color: #b08968 !important;
+}
+
+.gold-link:hover {
+  color: #7f5539 !important;
+  text-decoration: underline !important;
+}
+
+.terms-text {
+  font-size: 0.71rem;
+  color: #8c8c8c;
+  line-height: 1.4;
+}
+
+/* Efecto de desenfoque permitiendo ver el contenido de inicio con claridad */
+.modal-backdrop.show {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px); /* Soporte para Safari */
+    background-color: rgba(0, 0, 0, 0.2); /* Un tono oscuro muy ligero, o usa rgba(252, 244, 238, 0.4) para un tinte crema */
+    opacity: 1 !important;
+}

@@ -1,0 +1,193 @@
+/* ========================================================================== */
+/* 4. SECCIÓN HERO (PRINCIPAL) E ILUSTRACIONES                                */
+/* ========================================================================== */
+
+/* Fondo de la sección principal superior (Hero) */
+.hero-figma-bg {
+    background-color: var(--bg-main) !important;
+}
+
+/* Etiqueta tipo badge de información rápida en el hero */
+.badge-figma {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color);
+}
+
+/* Estilo para los títulos principales de la sección */
+.title-figma {
+    color: var(--text-main) !important;
+}
+
+/* Texto resaltado en color dorado distintivo */
+.gold-text {
+    color: var(--gold-primary) !important;
+}
+
+/* Párrafo descriptivo secundario en el bloque hero */
+.desc-figma {
+    color: var(--text-main) !important;
+    opacity: 0.8;
+}
+
+/* Botón principal de llamada a la acción (CTA) con color dorado */
+.gold-main-btn {
+    background-color: var(--gold-primary) !important;
+    border-color: var(--gold-primary) !important;
+    color: #FFF !important;
+}
+
+/* Botón alternativo con borde contorneado */
+.outline-custom-btn {
+    background-color: transparent !important;
+    border: 1px solid var(--text-main) !important;
+    color: var(--text-main) !important;
+}
+
+/* Números grandes de estadísticas en la interfaz */
+.stat-num {
+    color: var(--text-main) !important;
+}
+
+/* Etiquetas descriptivas debajo de las cifras estadísticas */
+.stat-label {
+    color: var(--text-main);
+    opacity: 0.7;
+}
+/* ========================================================================== */
+/* 5. TARJETAS DE PRODUCTOS Y CONTENEDORES                                    */
+/* ========================================================================== */
+
+/* Fondo y bordes genéricos para tarjetas de artículos */
+.card-figma-bg {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Subtítulos o categorías pequeñas dentro de las tarjetas */
+.card-sub {
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+/* Títulos principales ubicados dentro de las tarjetas */
+.card-title-figma {
+    color: var(--text-main) !important;
+}
+
+/* Precio actual destacado en los productos */
+.price-main {
+    color: var(--text-main) !important;
+}
+
+.intercambio-card {
+    color: rgb(243, 187, 65) !important;
+}
+
+/* Precio anterior tachado para mostrar ofertas */
+.price-old {
+    color: var(--text-main);
+    opacity: 0.5;
+}
+
+/* Texto indicador de ubicación geográfica del artículo */
+.location-text {
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+/* Insignia visual de seguridad en las tarjetas destacadas */
+.secure-badge {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color);
+}
+
+/* Insignia de estado "Destacado" con fondo dorado */
+.gold-badge {
+    background-color: var(--gold-primary) !important;
+    color: #FFF !important;
+}
+
+/* ========================================== */
+/* SECCIÓN CÓMO FUNCIONA */
+/* ========================================== */
+
+.how-step-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Movemos el número grande hacia la parte superior derecha de la tarjeta */
+.how-step-bg-number {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    /* Alineado a la derecha para dejar libre la izquierda al ícono */
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.10);
+    /* Tono translúcido muy sutil */
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* El contenido mantiene el ícono libre a la izquierda y baja los textos ordenadamente */
+.how-step-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Caja del ícono cuadrado con bordes redondeados */
+.how-icon-box {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* ========================================================================== */
+/* 6. SECCIÓN DE FILTROS, CATEGORÍAS Y TABS                                   */
+/* ========================================================================== */
+
+/* Contenedor general para las secciones de contenido secundarias */
+.content-section-figma {
+    background-color: var(--card-bg) !important;
+}
+
+/* Botón de categoría que se encuentra seleccionado actualmente */
+.category-btn-active {
+    background-color: var(--gold-primary) !important;
+    color: #FFF !important;
+}
+
+/* Botones de categoría estándar inactivos */
+.category-btn {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color);
+}
+
+/* Pestaña de navegación interna activa (Tabs) */
+.tab-active {
+    color: var(--gold-primary) !important;
+    border-bottom: 2px solid var(--gold-primary);
+}
+
+/* Pestañas de navegación interna inactivas */
+.tab-inactive {
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+/* Botón de favoritos (icono de corazón) en los productos */
+.fav-btn {
+    color: var(--text-main);
+    border: none;
+    background: transparent;
+}
+
+/* Sección informativa de pasos ("Cómo funciona") */
+.how-section-figma {
+    background-color: var(--bg-main) !important;
+}

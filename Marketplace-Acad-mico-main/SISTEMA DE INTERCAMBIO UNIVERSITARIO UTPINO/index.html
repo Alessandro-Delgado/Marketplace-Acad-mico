@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTPINO COMPARTE - Plataforma UTP</title>
+
+    <!-- Bootstrap CSS local -->
+    <link href="bootstrap-5.3.8-dist/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="custom-body">
+    <!-- BARRA DE NAVEGACIÓN STICKY -->
+    <nav class="navbar navbar-expand-lg nav-figma sticky-top">
+        <div class="container-fluid px-4 px-lg-5">
+            <!-- Logo y Nombre -->
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold brand-text" href="#">
+                <img src="imgs/logo.png.jpeg" alt="Logo" class="rounded-circle brand-logo">
+                UTPINO COMPARTE
+            </a>
+
+            <!-- Buscador en tiempo real -->
+            <div class="d-none d-md-flex align-items-center position-relative w-25">
+                <span class="position-absolute ms-3 search-icon-pos"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" class="form-control rounded-pill ps-5 search-input-figma shadow-none"
+                    placeholder="Buscar artículos, marcas...">
+            </div>
+
+            <!-- Menú derecho -->
+            <div class="d-flex align-items-center gap-3">
+                <a href="#" class="text-decoration-none nav-link-figma fw-semibold d-none d-lg-block">Explorar</a>
+                <a href="" id="btnAbrirSoporte" class="text-decoration-none nav-link-figma fw-semibold d-none d-lg-block">Ayuda /
+                    Contáctenos</a>
+
+                <!-- Toggle Sol/Luna Modo Oscuro -->
+                <button id="darkModeToggle"
+                    class="btn rounded-circle d-flex align-items-center justify-content-center theme-btn-figma"
+                    title="Cambiar modo oscuro">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </button>
+
+                <!-- Botón Login (Activa modal nativo) -->
+                <button id="openLoginBtn" class="btn rounded-pill px-4 fw-bold login-btn-figma">
+                    Iniciar sesión
+                </button>
+                <button id="btnCerrarSesion" class="btn rounded-pill px-4 fw-bold login-btn-figma d-none">
+                    <i clas="fa-solid fa-right-from-bracket me-1"></i>Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+
+ <!-- SECCIÓN CONTÁCTENOS / SOPORTE -->
+<section id="contenedorFormulario" class="container-fluid px-4 px-lg-5 py-5 content-section-figma d-none">
+
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+        <button id="btnCerrarSoporte" class="btn btn-sm outline-custom-btn d-inline-flex align-items-center gap-2">
+            <i class="fa-solid fa-arrow-left"></i> Volver
+        </button>
+
+        <div>
+            <span class="badge badge-figma py-2 px-3 fw-medium" style="font-size: 0.75rem;">Centro de soporte</span>
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <h2 class="fw-bold title-figma mb-1" style="font-size: 2rem;">Centro de ayuda y soporte</h2>
+        <p class="text-muted small">Si tuviste un problema con una compra, venta o intercambio, estamos aquí para
+            ayudarte.</p>
+    </div>
+
+    <div class="row g-5">
+        <div class="col-12 col-lg-8">
+            <form id="contactForm">
+
+                <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+                    <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase" style="letter-spacing: 0.5px;">
+                        1. Tipo de problema
+                    </h5>
+                    <div>
+                        <select class="form-select form-control-figma py-2 shadow-none" required>
+                            <option value="" selected disabled>Selecciona el motivo de tu reporte...</option>
+                            <option value="pago">Problema con un pago (Cobro indebido / No reflejado)</option>
+                            <option value="material">Material o producto equivocado / defectuoso</option>
+                            <option value="estafa">Incidencia o sospecha de estafa con usuario</option>
+                            <option value="otro">Otro inconveniente en compra / venta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+                    <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase" style="letter-spacing: 0.5px;">
+                        2. Datos de contacto
+                    </h5>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label class="form-label small fw-semibold">Nombre completo <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-figma shadow-none"
+                                placeholder="Ej: Ana García López" required>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label small fw-semibold">Correo electrónico <span
+                                    class="text-danger">*</span></label>
+                            <input type="email" class="form-control form-control-figma shadow-none"
+                                placeholder="tu@correo.edu.pe" required>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label small fw-semibold">Teléfono (opcional)</label>
+                            <input type="tel" class="form-control form-control-figma shadow-none"
+                                placeholder="+51 999 000 000">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label small fw-semibold">N° de transacción (opcional)</label>
+                            <input type="text" class="form-control form-control-figma shadow-none"
+                                placeholder="Ej: TXN-20260813-0042">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+                    <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase" style="letter-spacing: 0.5px;">
+                        3. Describe el problema
+                    </h5>
+                    <div class="mb-1">
+                        <label class="form-label small fw-semibold">Descripción detallada <span
+                                class="text-danger">*</span></label>
+                        <textarea class="form-control form-control-figma shadow-none" rows="4" maxlength="1000"
+                            placeholder="Describe qué ocurrió, cuándo fue, qué artículo o pago estuvo involucrado y cualquier detalle relevante para agilizar la resolución..."
+                            oninput="document.getElementById('charCount').innerText = this.value.length"
+                            required></textarea>
+                        <div class="text-end text-muted small mt-1" style="font-size: 0.75rem;"><span
+                                id="charCount">0</span> / 1000</div>
+                    </div>
+                </div>
+
+                <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+                    <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase" style="letter-spacing: 0.5px;">
+                        4. Evidencia (opcional)
+                    </h5>
+                    <div class="upload-dropzone p-4 text-center rounded-3 border border-dashed">
+                        <i class="fa-solid fa-cloud-arrow-up fs-3 gold-text mb-2"></i>
+                        <p class="small mb-1">Arrastra archivos aquí o <span class="gold-link fw-semibold"
+                                style="cursor: pointer;">selecciona</span></p>
+                        <p class="text-muted mb-0" style="font-size: 0.75rem;">Capturas de pantalla, fotos del artículo,
+                            comprobantes de pago (máx. 5 MB c/u)</p>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn gold-main-btn w-100 py-3 fw-bold rounded-3 shadow-sm">
+                    Enviar reporte
+                </button>
+
+            </form>
+        </div>
+
+        <div class="col-12 col-lg-4">
+
+            <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+                <h5 class="fw-bold card-title-figma mb-3 fs-6">
+                    <i class="fa-solid fa-headset gold-text me-2"></i> Contacto directo
+                </h5>
+                <p class="small text-muted mb-2">Correo: <a href="mailto:soporte@utpinocomparte.pe"
+                        class="gold-link text-decoration-none">soporte@utpinocomparte.pe</a></p>
+                <p class="small text-muted mb-2">Teléfono central: +51 (01) 000-0000</p>
+                <hr class="border-secondary opacity-25 my-3">
+                <p class="text-muted mb-0" style="font-size: 0.75rem;">Lunes a viernes, 8:00 am – 6:00 pm (hora Lima)
+                </p>
+            </div>
+
+            <div class="card card-figma-bg p-4 border rounded-4 shadow-sm">
+                <h5 class="fw-bold card-title-figma mb-3 fs-6">
+                    Consejos antes de reportar
+                </h5>
+                <ul class="list-unstyled small text-muted d-flex flex-column gap-2 mb-0" style="line-height: 1.5;">
+                    <li class="d-flex align-items-start gap-2">
+                        <span class="gold-text">•</span> Intentar primero contactar directamente al vendedor/comprador
+                        por el chat.
+                    </li>
+                    <li class="d-flex align-items-start gap-2">
+                        <span class="gold-text">•</span> Guarda capturas del anuncio, mensajes y comprobantes de pago.
+                    </li>
+                    <li class="d-flex align-items-start gap-2">
+                        <span class="gold-text">•</span> Si pagaste con nuestra plataforma, el reembolso está
+                        garantizado.
+                    </li>
+                    <li class="d-flex align-items-start gap-2">
+                        <span class="gold-text">•</span> Incluye el número de transacción para agilizar la resolución.
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- MODAL NATIVO PERSONALIZADO (Cero bloqueos) -->
+    <!-- MODAL LOGIN / REGISTRO -->
+    <div id="customLoginModal" class="custom-modal-overlay">
+        <div class="custom-modal-dialog">
+            <div class="modal-content border-0 rounded-4 p-3 modal-figma-bg shadow-lg position-relative">
+    
+                <!-- BOTÓN CERRAR -->
+                <div class="modal-header border-0 pb-0 justify-content-end">
+                    <button type="button" id="closeLoginBtn" class="btn-close shadow-none"></button>
+                </div>
+    
+                <div class="modal-body text-center px-4 pt-0 pb-4">
+    
+                    <!-- LOGO -->
+                    <div class="mb-3">
+                        <img src="imgs/logo.png.jpeg" alt="Logo UTPINO"
+                            class="rounded-circle border border-2 border-white shadow-sm modal-logo-figma">
+                    </div>
+    
+                    <!-- TÍTULO DINÁMICO -->
+                    <h4 id="authTitle" class="fw-bold modal-title-figma mb-2">
+                        Bienvenido a UTPINO<br>COMPARTE
+                    </h4>
+    
+                    <p id="authDescription" class="modal-desc-figma small mb-4">
+                        Comunidad universitaria UTP para comprar, vender e intercambiar con confianza.
+                    </p>
+    
+                    <!-- ========================= -->
+                    <!-- FORMULARIO LOGIN -->
+                    <!-- ========================= -->
+    
+                    <form id="loginForm">
+    
+                        <div class="mb-3 text-start">
+                            <label class="form-label fw-bold small">
+                                Correo institucional
+                            </label>
+    
+                            <input type="email" id="loginEmail"
+                                class="form-control form-control-figma rounded-pill shadow-none"
+                                placeholder="correo@utp.edu.pe" required>
+                        </div>
+    
+                        <div class="mb-3 text-start">
+                            <label class="form-label fw-bold small">
+                                Contraseña
+                            </label>
+    
+                            <div class="position-relative">
+                                <input type="password" id="loginPassword"
+                                    class="form-control form-control-figma rounded-pill shadow-none pe-5"
+                                    placeholder="Ingresa tu contraseña" required>
+    
+                                <button type="button" class="btn position-absolute top-50 end-0 translate-middle-y me-2"
+                                    onclick="togglePassword('loginPassword', this)">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+    
+                        <div id="loginMessage" class="small mb-3"></div>
+    
+                        <button type="submit" class="btn w-100 py-2 rounded-pill fw-bold gold-main-btn mb-3">
+                            Iniciar sesión
+                        </button>
+    
+                        <p class="small mb-0">
+                            ¿No tienes una cuenta?
+                            <button type="button" id="showRegisterBtn"
+                                class="btn btn-link p-0 fw-bold gold-link text-decoration-none">
+                                Crear cuenta
+                            </button>
+                        </p>
+    
+                    </form>
+    
+    
+                    <!-- ========================= -->
+                    <!-- FORMULARIO REGISTRO -->
+                    <!-- ========================= -->
+    
+                    <form id="registerForm" class="d-none">
+    
+                        <div class="mb-3 text-start">
+                            <label class="form-label fw-bold small">
+                                Nombre completo
+                            </label>
+    
+                            <input type="text" id="registerName"
+                                class="form-control form-control-figma rounded-pill shadow-none"
+                                placeholder="Ej. Juan Pérez" required>
+                        </div>
+    
+                        <div class="mb-3 text-start">
+                            <label class="form-label fw-bold small">
+                                Correo institucional
+                            </label>
+    
+                            <input type="email" id="registerEmail"
+                                class="form-control form-control-figma rounded-pill shadow-none"
+                                placeholder="correo@utp.edu.pe" required>
+                        </div>
+    
+                        <div class="mb-3 text-start">
+                            <label class="form-label fw-bold small">
+                                Contraseña
+                            </label>
+    
+                            <div class="position-relative">
+    
+                                <input type="password" id="registerPassword"
+                                    class="form-control form-control-figma rounded-pill shadow-none pe-5"
+                                    placeholder="Mínimo 6 caracteres" minlength="6" required>
+    
+                                <button type="button" class="btn position-absolute top-50 end-0 translate-middle-y me-2"
+                                    onclick="togglePassword('registerPassword', this)">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+    
+                            </div>
+                        </div>
+    
+                        <div class="mb-3 text-start">
+                            <label class="form-label fw-bold small">
+                                Confirmar contraseña
+                            </label>
+    
+                            <div class="position-relative">
+    
+                                <input type="password" id="registerPasswordConfirm"
+                                    class="form-control form-control-figma rounded-pill shadow-none pe-5"
+                                    placeholder="Repite tu contraseña" minlength="6" required>
+    
+                                <button type="button" class="btn position-absolute top-50 end-0 translate-middle-y me-2"
+                                    onclick="togglePassword('registerPasswordConfirm', this)">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+    
+                            </div>
+                        </div>
+    
+                        <div id="registerMessage" class="small mb-3"></div>
+    
+                        <button type="submit" class="btn w-100 py-2 rounded-pill fw-bold gold-main-btn mb-3">
+                            Crear cuenta
+                        </button>
+    
+                        <p class="small mb-0">
+                            ¿Ya tienes una cuenta?
+                            <button type="button" id="showLoginBtn"
+                                class="btn btn-link p-0 fw-bold gold-link text-decoration-none">
+                                Iniciar sesión
+                            </button>
+                        </p>
+    
+                    </form>
+    
+                    <p class="modal-footer-text-figma mt-4">
+                        Al continuar, aceptas los
+                        <a href="#" class="gold-link text-decoration-none">
+                            Términos de uso
+                        </a>
+                        y la
+                        <a href="#" class="gold-link text-decoration-none">
+                            Política de privacidad.
+                        </a>
+                    </p>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN HERO EDITORIAL -->
+    <div id="closeAll">
+    <main class="container-fluid px-4 px-lg-5 py-5 hero-figma-bg">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <span class="badge rounded-pill mb-3 px-3 py-2 fw-semibold badge-figma">
+                    <i class="fa-solid fa-bolt"></i> Plataforma de intercambio universal
+                </span>
+                <h1 class="display-4 fw-bold mb-4 title-figma">
+                    Compra, vende e <span class="gold-text">intercambia</span> cualquier cosa
+                </h1>
+                <p class="desc-figma mb-4 fs-6">
+                    La plataforma donde compradores y vendedores de la UTP se encuentran para negociar sin
+                    intermediarios con total seguridad.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3 mb-5">
+                    <button class="btn btn-lg rounded-3 px-4 fw-bold gold-main-btn openLoginTrigger">Empezar ahora <i
+                            class="fa-solid fa-arrow-right ms-2"></i></button>
+                    <button class="btn btn-lg rounded-3 px-4 fw-bold outline-custom-btn">Ver artículos</button>
+                </div>
+
+                <!-- Estadísticas de plataforma -->
+                <div class="row g-4">
+                    <div class="col-4">
+                        <h3 class="fw-bold mb-0 fs-2 stat-num">48.200<span class="gold-text">+</span></h3>
+                        <small class="stat-label">Artículos activos</small>
+                    </div>
+                    <div class="col-4">
+                        <h3 class="fw-bold mb-0 fs-2 stat-num">12.500</h3>
+                        <small class="stat-label">Usuarios verificados</small>
+                    </div>
+                    <div class="col-4">
+                        <h3 class="fw-bold mb-0 fs-2 stat-num">$4.8<span class="gold-text">B</span></h3>
+                        <small class="stat-label">En transacciones</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta Destacada Central -->
+            <div class="col-lg-5 d-flex justify-content-center">
+                <div class="card border-0 shadow-lg p-3 rounded-4 position-relative card-figma-bg"
+                    style="width: 360px;">
+                    <span
+                        class="badge position-absolute top-0 start-0 m-4 px-3 py-2 rounded-2 fw-bold gold-badge">Destacado</span>
+                        <div class="overflow-hidden rounded-3 mb-3" style="height: 220px; background: #111;">
+                            <img src="imgs/Iphone.webp"
+                                class="w-100 h-100 object-fit-cover opacity-75 transition-scale" 
+                                style="transition: transform 0.3s ease;"
+                                onmouseover="this.style.transform='scale(1.08)'" 
+                                onmouseout="this.style.transform='scale(1)'"
+                                alt="iPhone">
+                        </div>
+                    <div class="card-body p-0">
+                        <small class="card-sub">Electrónica · Excelente estado</small>
+                        <h5 class="fw-bold card-title-figma mt-1 mb-3">iPhone 15 Pro 256GB Titanio Natural</h5>
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <span class="fs-4 fw-bold price-main">S/ 850</span>
+                            <span class="text-decoration-line-through price-old small">S/ 990</span>
+                            <span class="ms-auto fw-bold small gold-text"><i class="fa-solid fa-star"></i> 4.9</span>
+                        </div>
+                        <div class="location-text small d-flex align-items-center gap-1">
+                            <i class="fa-solid fa-location-dot"></i> Lima, Perú
+                        </div>
+                    </div>
+                    <div class="position-absolute px-3 py-2 rounded-pill shadow-sm small fw-bold text-success d-flex align-items-center gap-2 secure-badge"
+                        style="bottom: -15px; right: 20px;">
+                        <i class="fa-solid fa-lock"></i> Pago seguro
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<!-- SECCIÓN DE ARTÍCULOS Y FILTROS -->
+<section class="container-fluid px-4 px-lg-5 py-5 content-section-figma">
+    <div class="d-flex flex-wrap gap-2 mb-3 overflow-auto pb-2">
+        <!-- Nota los atributos data-category para categorizar cada seccion-->
+        <!-- 27/08/2026 Agregado los data category-->
+        <button class="btn px-3 py-2 rounded-pill fw-bold category-btn-active category-btn" data-category="all"><i
+                class="fa-solid fa-house-chimney me-1"></i> Todo</button>
+        <button class="btn px-3 py-2 rounded-pill fw-medium category-btn" data-category="electronica"><i
+                class="fa-solid fa-laptop me-1"></i> Electrónica</button>
+        <button class="btn px-3 py-2 rounded-pill fw-medium category-btn" data-category="ropa"><i
+                class="fa-solid fa-shirt me-1"></i> Ropa</button>
+        <button class="btn px-3 py-2 rounded-pill fw-medium category-btn" data-category="vehiculos"><i
+                class="fa-solid fa-car me-1"></i> Vehículos</button>
+        <button class="btn px-3 py-2 rounded-pill fw-medium category-btn" data-category="libros"><i
+                class="fa-solid fa-book me-1"></i> Libros</button>
+        <button class="btn px-3 py-2 rounded-pill fw-medium category-btn" data-category="arte"><i
+                class="fa-solid fa-palette me-1"></i> Arte</button>
+        <button class="btn px-3 py-2 rounded-pill fw-medium category-btn" data-category="deportes"><i
+                class="fa-solid fa-futbol me-1"></i> Deportes</button>
+        <button class="btn px-3 py-2 rounded-pill fw-medium category-btn" data-category="coleccion"><i
+                class="fa-solid fa-gem me-1"></i> Colección</button>
+    </div>
+    <!-- Contenedor de pestañas-->
+    <div class="d-flex gap-3 mb-4 border-bottom pb-2 tabs-figma-container">
+        <!-- Nota los atributos data-tab y la clase tab-btn genérica --> <!-- 27/08/2026 Agregado los data-tab-->
+        <button class="btn btn-link text-decoration-none fw-bold tab-active tab-btn p-0 pb-2"
+            data-tab="all">Todos</button>
+        <button class="btn btn-link text-decoration-none fw-semibold tab-inactive tab-btn p-0 pb-2" data-tab="venta">En
+            venta</button>
+        <button class="btn btn-link text-decoration-none fw-semibold tab-inactive tab-btn p-0 pb-2"
+            data-tab="intercambio">Intercambio</button>
+    </div>
+    <!-- Contador de resultados-->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold title-figma mb-0">Artículos disponibles</h2>
+        <span class="text-muted small" id="results-count">resultados</span> <!-- 27/08/2026 Agregado un id-->
+    </div>
+
+    <div class="row g-4"> <!-- Panel de articulos-->
+
+        <div class="col-12 col-sm-6 col-lg-3 item-card" data-category="electronica" data-type="venta">
+            <div class="card border-0 shadow-sm p-3 rounded-4 position-relative h-100 card-figma-bg">
+                <button class="position-absolute top-0 end-0 m-4 btn rounded-circle p-2 fav-btn bg-white shadow-sm"
+                    onclick="this.classList.toggle('text-danger')"><i class="fa-regular fa-heart"></i></button>
+                <div class="overflow-hidden rounded-3 mb-3" style="height: 180px; background: #111;">
+                    <img src="imgs/Iphone.webp"
+                    class="w-100 h-100 object-fit-cover opacity-75 transition-scale" 
+                    style="transition: transform 0.3s ease;"
+                    onmouseover="this.style.transform='scale(1.08)'" 
+                    onmouseout="this.style.transform='scale(1)'"
+                    alt="iPhone 15 Pro"
+                    class="w-100 h-100 object-fit-cover opacity-75">
+                </div>
+                <div class="card-body p-0 d-flex flex-column">
+                    <small class="card-sub">Excelente estado</small>
+                    <h6 class="fw-bold card-title-figma mt-1 mb-2">iPhone 15 Pro 256GB Titanio Natural</h6>
+                    <div class="d-flex align-items-center gap-2 mb-3 mt-auto">
+                        <span class="fs-5 fw-bold price-main">S/ 850</span>
+                        <span class="text-decoration-line-through price-old small">S/ 990</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3 item-card" data-category="deportes" data-type="intercambio">
+            <div class="card border-0 shadow-sm p-3 rounded-4 position-relative h-100 card-figma-bg">
+                <button class="position-absolute top-0 end-0 m-4 btn rounded-circle p-2 fav-btn bg-white shadow-sm"
+                    onclick="this.classList.toggle('text-danger')"><i class="fa-regular fa-heart"></i></button>
+                <div class="overflow-hidden rounded-3 mb-3" style="height: 180px; background: #111;">
+                    <img src="imgs/Bicicleta.jpeg"
+                        class="w-100 h-100 object-fit-cover opacity-75 transition-scale" alt="Bicicleta Trek Marlin 7"
+                        style="transition: transform 0.3s ease;"
+                        onmouseover="this.style.transform='scale(1.08)'" 
+                        onmouseout="this.style.transform='scale(1)'"
+                        alt="iPhone 15 Pro"
+                        class="w-100 h-100 object-fit-cover opacity-75">
+                </div>
+                <div class="card-body p-0 d-flex flex-column">
+                    <small class="card-sub">Buen estado</small>
+                    <h6 class="fw-bold card-title-figma mt-1 mb-2">Bicicleta Trek Marlin 7</h6>
+                    <div class="d-flex align-items-center gap-2 mb-3 mt-auto">
+                        <span class="fs-5 fw-bold intercambio-card">Intercambio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3 item-card" data-category="libros" data-type="intercambio">
+            <div class="card border-0 shadow-sm p-3 rounded-4 position-relative h-100 card-figma-bg">
+                <button class="position-absolute top-0 end-0 m-4 btn rounded-circle p-2 fav-btn bg-white shadow-sm"
+                    onclick="this.classList.toggle('text-danger')"><i class="fa-regular fa-heart"></i></button>
+                <div class="overflow-hidden rounded-3 mb-3" style="height: 180px; background: #111;">
+                    <img src="imgs/LibroHTML,CSS,JS.jpeg" class="w-100 h-100 object-fit-cover opacity-75 transition-scale" alt="Libro Básica de Desarrollo Web"
+                    style="transition: transform 0.3s ease;"
+                    onmouseover="this.style.transform='scale(1.08)'" 
+                    onmouseout="this.style.transform='scale(1)'"
+                    alt="iPhone 15 Pro"
+                    class="w-100 h-100 object-fit-cover opacity-75">
+                </div>
+                <div class="card-body p-0 d-flex flex-column">
+                    <small class="card-sub">Buen estado con comentarios extra</small>
+                    <h6 class="fw-bold card-title-figma mt-1 mb-2">Libro Básico de Desarrollo Web</h6>
+                    <div class="d-flex align-items-center gap-2 mb-3 mt-auto">
+                        <span class="fs-5 fw-bold intercambio-card">Intercambio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3 item-card" data-category="hogar" data-type="venta">
+            <div class="card border-0 shadow-sm p-3 rounded-4 position-relative h-100 card-figma-bg">
+                <button class="position-absolute top-0 end-0 m-4 btn rounded-circle p-2 fav-btn bg-white shadow-sm"
+                    onclick="this.classList.toggle('text-danger')"><i class="fa-regular fa-heart"></i></button>
+                <div class="overflow-hidden rounded-3 mb-3" style="height: 180px; background: #111;">
+                    <img src="imgs/PlumaEstiloGrafica.jpg"
+                        class="w-100 h-100 object-fit-cover opacity-75 transition-scale" alt="Item"
+                        style="transition: transform 0.3s ease;"
+                        onmouseover="this.style.transform='scale(1.08)'" 
+                        onmouseout="this.style.transform='scale(1)'"
+                        alt="iPhone 15 Pro"
+                        class="w-100 h-100 object-fit-cover opacity-75">
+                </div>
+                <div class="card-body p-0 d-flex flex-column">
+                    <small class="card-sub">Como nuevo</small>
+                    <h6 class="fw-bold card-title-figma mt-1 mb-2">Pluma estilo gráfica</h6>
+                    <div class="d-flex align-items-center gap-2 mb-3 mt-auto">
+                        <span class="fs-5 fw-bold price-main">S/ 750</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3 item-card" data-category="electronica" data-type="venta">
+            <div class="card border-0 shadow-sm p-3 rounded-4 position-relative h-100 card-figma-bg">
+                <button class="position-absolute top-0 end-0 m-4 btn rounded-circle p-2 fav-btn bg-white shadow-sm"
+                    onclick="this.classList.toggle('text-danger')"><i class="fa-regular fa-heart"></i></button>
+                <div class="overflow-hidden rounded-3 mb-3" style="height: 180px; background: #111;">
+                    <img src="imgs/Mackbook.jpeg"
+                        class="w-100 h-100 object-fit-cover opacity-75 transition-scale" alt="Item"
+                        style="transition: transform 0.3s ease;"
+                        onmouseover="this.style.transform='scale(1.08)'" 
+                        onmouseout="this.style.transform='scale(1)'"
+                        alt="iPhone 15 Pro"
+                        class="w-100 h-100 object-fit-cover opacity-75">
+                </div>
+                <div class="card-body p-0 d-flex flex-column">
+                    <small class="card-sub">Nuevo sellado</small>
+                    <h6 class="fw-bold card-title-figma mt-1 mb-2">MacBook Air M3 13" 16GB</h6>
+                    <div class="d-flex align-items-center gap-2 mb-3 mt-auto">
+                        <span class="fs-5 fw-bold price-main">S/ 980</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================== -->
+<!-- SECCIÓN CÓMO FUNCIONA -->
+<!-- ========================================== -->
+<section class="container-fluid px-4 px-lg-5 py-5 how-section-figma">
+    <!-- Título y subtítulo de la sección -->
+    <div class="text-center mb-5">
+        <h2 class="fw-bold title-figma mb-1">¿Cómo funciona?</h2>
+        <p class="text-muted small">Tres pasos para tu primera transacción</p>
+    </div>
+
+    <!-- Contenedor de las 3 tarjetas de pasos -->
+    <div class="row g-4 justify-content-center">
+
+        <!-- Paso 01 -->
+        <div class="col-12 col-md-4">
+            <div class="card border-0 shadow-sm p-4 rounded-4 h-100 card-figma-bg how-step-card">
+                <!-- Número grande posicionado a la derecha para no chocar con el ícono -->
+                <span class="how-step-bg-number">01</span>
+                <!-- Contenido principal -->
+                <div class="how-step-content">
+                    <div
+                        class="mb-3 d-inline-flex align-items-center justify-content-center rounded-3 bg-white shadow-sm how-icon-box">
+                        <i class="fa-solid fa-plus gold-text"></i>
+                    </div>
+                    <h5 class="fw-bold card-title-figma mb-2">Publica tu artículo</h5>
+                    <p class="card-sub small mb-0">Agrega fotos, descripción y precio en menos de 2 minutos. Elige entre
+                        vender o intercambiar.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paso 02 -->
+        <div class="col-12 col-md-4">
+            <div class="card border-0 shadow-sm p-4 rounded-4 h-100 card-figma-bg how-step-card">
+                <!-- Número grande posicionado a la derecha para no chocar con el ícono -->
+                <span class="how-step-bg-number">02</span>
+                <!-- Contenido principal -->
+                <div class="how-step-content">
+                    <div
+                        class="mb-3 d-inline-flex align-items-center justify-content-center rounded-3 bg-white shadow-sm how-icon-box">
+                        <i class="fa-solid fa-magnifying-glass gold-text"></i>
+                    </div>
+                    <h5 class="fw-bold card-title-figma mb-2">Conecta con compradores</h5>
+                    <p class="card-sub small mb-0">Recibe mensajes directos de interesados. Negocia el precio o propón
+                        un intercambio.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paso 03 -->
+        <div class="col-12 col-md-4">
+            <div class="card border-0 shadow-sm p-4 rounded-4 h-100 card-figma-bg how-step-card">
+                <!-- Número grande posicionado a la derecha para no chocar con el ícono -->
+                <span class="how-step-bg-number">03</span>
+                <!-- Contenido principal -->
+                <div class="how-step-content">
+                    <div
+                        class="mb-3 d-inline-flex align-items-center justify-content-center rounded-3 bg-white shadow-sm how-icon-box">
+                        <i class="fa-solid fa-shield-halved gold-text"></i>
+                    </div>
+                    <h5 class="fw-bold card-title-figma mb-2">Cierra con seguridad</h5>
+                    <p class="card-sub small mb-0">Utiliza nuestro sistema de pago protegido. Liberamos el dinero cuando
+                        confirmas la entrega.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Sección de Características e Indicadores -->
+<div class="container-fluid px-4 px-lg-5 py-4 footer-figma">
+    <div class="row text-center gy-3 mb-5">
+        <div class="col-6 col-md-3">
+            <span class="small text-muted d-flex align-items-center justify-content-center gap-2">
+                <i class="fa-solid fa-shield-halved gold-text"></i> Pagos 100% protegidos
+            </span>
+        </div>
+        <div class="col-6 col-md-3">
+            <span class="small text-muted d-flex align-items-center justify-content-center gap-2">
+                <i class="fa-solid fa-arrow-trend-up gold-text"></i> +48.000 artículos activos
+            </span>
+        </div>
+        <div class="col-6 col-md-3">
+            <span class="small text-muted d-flex align-items-center justify-content-center gap-2">
+                <i class="fa-regular fa-star gold-text"></i> Vendedores verificados
+            </span>
+        </div>
+        <div class="col-6 col-md-3">
+            <span class="small text-muted d-flex align-items-center justify-content-center gap-2">
+                <i class="fa-solid fa-right-left gold-text"></i> Intercambios seguros
+            </span>
+        </div>
+    </div>
+
+    <!-- Tarjeta Central CTA: ¿Tienes algo que vender o intercambiar? -->
+    <div class="row justify-content-center pb-4">
+        <div class="col-12 col-lg-10">
+            <div class="card card-figma-bg border-0 shadow-sm p-5 text-center rounded-4">
+                <h3 class="fw-bold title-figma mb-2" style="font-size: 1.8rem;">¿Tienes algo que vender o intercambiar?
+                </h3>
+                <p class="text-muted small mb-4">Únete a más de 12.500 usuarios que ya usan UTPINO COMPARTE para dar
+                    nueva vida a sus artículos.</p>
+                <div>
+                    <!-- Con la clase openLoginTrigger para que abra el modal si no ha iniciado sesión -->
+                    <button id="btnAnadirArticulo" class="btn gold-main-btn px-4 py-2 rounded-pill fw-bold openLoginTrigger">
+                        + Publicar mi primer artículo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ========================================== -->
+<!-- REGISTRO DE ARTÍCULOS -->
+<!-- ========================================== -->
+    <div id="customArticleModal" class="custom-modal-overlay" style="display: none;">
+        <div class="custom-modal-dialog">
+            <div class="modal-content border-0 rounded-4 p-3 modal-figma-bg shadow-lg position-relative">
+    
+                <!-- BOTÓN CERRAR -->
+                <div class="modal-header border-0 pb-0 justify-content-end">
+                    <button type="button" id="closeArticleBtn" class="btn-close shadow-none"></button>
+                </div>
+    
+                <div class="modal-body text-center px-4 pt-0 pb-4">
+                    <h4 class="fw-bold modal-title-figma mb-2">
+                        Añadir nuevo artículo
+                    </h4>
+                    <p class="modal-desc-figma small mb-4">
+                        Completa los datos para publicar tu producto en UTPINO COMPARTE.
+                    </p>
+    
+                    <!-- FORMULARIO DE NUEVO ARTÍCULO -->
+                    <form id="addArticleForm" class="text-start">
+    
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small">Título del artículo <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-figma rounded-pill shadow-none"
+                                placeholder="Ej: iPhone 15 Pro, Libro de Cálculo..." required>
+                        </div>
+    
+                        <div class="row g-3 mb-3">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label fw-bold small">Precio (S/) <span
+                                        class="text-danger">*</span></label>
+                                <input type="number" step="0.01"
+                                    class="form-control form-control-figma rounded-pill shadow-none"
+                                    placeholder="Ej: 150.00" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label fw-bold small">Categoría <span class="text-danger">*</span></label>
+                                <select class="form-select form-control-figma rounded-pill shadow-none" required>
+                                    <option value="" selected disabled>Selecciona...</option>
+                                    <option value="electronica">Electrónica</option>
+                                    <option value="ropa">Ropa</option>
+                                    <option value="hogar">Hogar</option>
+                                    <option value="vehiculos">Vehículos</option>
+                                    <option value="libros">Libros</option>
+                                    <option value="arte">Arte</option>
+                                    <option value="deportes">Deportes</option>
+                                    <option value="coleccion">Colección</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small">Estado del artículo <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-figma rounded-pill shadow-none"
+                                placeholder="Ej: Como nuevo, Buen estado..." required>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small">URL de la Imagen <span
+                                    class="text-danger">*</span></label>
+                            <input type="url" class="form-control form-control-figma rounded-pill shadow-none"
+                                placeholder="https://ejemplo.com/imagen.jpg" required>
+                        </div>
+    
+                        <button type="submit" class="btn w-100 py-2 rounded-pill fw-bold gold-main-btn mb-2">
+                            Publicar artículo
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- ========================================== -->
+<!-- FOOTER DE LA PLATAFORMA -->
+<!-- ========================================== -->
+<footer class="container-fluid px-4 px-lg-5 pt-5 pb-4 footer-figma border-top">
+    <div class="row g-4 mb-5">
+
+        <!-- Columna 1: Logo y Descripción -->
+        <div class="col-12 col-lg-3">
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <img src="imgs/logo.png.jpeg" alt="Logo" width="30" height="30" class="rounded-circle">
+                <!-- Reemplaza con la ruta de tu logo -->
+                <span class="fw-bold title-figma" style="font-size: 1.1rem;">UTPINO COMPARTE</span>
+            </div>
+            <p class="text-muted small mb-0" style="max-width: 280px; line-height: 1.5;">
+                La plataforma de compra, venta e intercambio de la comunidad UTP. Conecta con otros estudiantes y
+                docentes.
+            </p>
+        </div>
+
+        <!-- Columna 2: Plataforma -->
+        <div class="col-6 col-md-4 col-lg-3">
+            <h6 class="fw-bold text-uppercase small text-secondary mb-3" style="letter-spacing: 0.5px;">Plataforma</h6>
+            <ul class="list-unstyled d-flex flex-column gap-2 mb-0 small">
+                <li><a href="#articulos" class="text-decoration-none text-muted">Explorar artículos</a></li>
+                <li><a href="#publicar" class="text-decoration-none text-muted">Publicar artículo</a></li>
+                <li><a href="#categorias" class="text-decoration-none text-muted">Categorías</a></li>
+                <li><a href="#como-funciona" class="text-decoration-none text-muted">Cómo funciona</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Soporte (Vinculado al Modal) -->
+        <div class="col-6 col-md-4 col-lg-3">
+            <h6 class="fw-bold text-uppercase small text-secondary mb-3" style="letter-spacing: 0.5px;">Soporte</h6>
+            <ul class="list-unstyled d-flex flex-column gap-2 mb-0 small">
+                <li><a href="" id="btnAbrirSoporte" class="text-decoration-none text-muted">Centro de ayuda</a></li>
+                <li><a href="#seguridad" class="text-decoration-none text-muted">Seguridad</a></li>
+                <li><a href="#disputas" class="text-decoration-none text-muted">Resolución de disputas</a></li>
+                <li><a href="#" id="btnAbrirSoporte" class="text-decoration-none text-muted">Contáctenos</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 4: Empresa -->
+        <div class="col-6 col-md-4 col-lg-3">
+            <h6 class="fw-bold text-uppercase small text-secondary mb-3" style="letter-spacing: 0.5px;">Empresa</h6>
+            <ul class="list-unstyled d-flex flex-column gap-2 mb-0 small">
+                <li><a href="#acerca" class="text-decoration-none text-muted">Acerca de</a></li>
+                <li><a href="#blog" class="text-decoration-none text-muted">Blog</a></li>
+                <li><a href="#prensa" class="text-decoration-none text-muted">Prensa</a></li>
+                <li><a href="#terminos" class="text-decoration-none text-muted">Términos y condiciones</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Línea divisoria y Copyright -->
+    <div class="row pt-4 border-top align-items-center text-muted small">
+        <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+            &copy; 2026 UTPINO COMPARTE. Todos los derechos reservados.
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-end">
+            Hecho con propósito en Perú PE
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts y Control Nativo del Modal -->
+    <script src="bootstrap-5.3.8-dist/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+.create-product-card {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-color) !important;
+}
+
+.form-control,
+.form-select {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 0.2rem rgba(168, 114, 42, 0.15);
+}
+
+.form-control::placeholder {
+  color: var(--text-main);
+  opacity: 0.5;
+}

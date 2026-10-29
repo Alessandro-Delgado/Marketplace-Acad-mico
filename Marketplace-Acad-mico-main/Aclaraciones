@@ -1,0 +1,14 @@
+En el src encontraremos muchas partes del FRONT END
+
+models/: Define cómo luce la información antes de enviarla 
+o recibirla del Backend. 
+Evita errores de tipo en TypeScript.
+
+services/: Usan HttpClient para conectarse directamente con los endpoints 
+(@RestController) que programes en tu backend.
+
+guards/: Si un usuario no está logueado, el auth.guard.ts 
+le impedirá entrar a la pantalla de chat o de crear productos, redirigiéndolo al login.
+
+chat/: En pages, contendrá la lógica para mostrar la lista de tus chats a la izquierda y
+ la conversación activa a la derecha cuando hagas clic en "Contactar al vendedor"
