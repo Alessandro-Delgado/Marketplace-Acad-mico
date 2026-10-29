@@ -1,146 +1,412 @@
-<!-- SECCIÓN CONTÁCTENOS / SOPORTE -->
 <section class="container-fluid px-4 px-lg-5 py-5 content-section-figma">
 
-    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
-        <!-- Botón Volver adaptado con routerLink de Angular -->
-        <a routerLink="/inicio"
-            class="btn btn-sm outline-custom-btn d-inline-flex align-items-center gap-2 text-decoration-none">
-            <i class="fa-solid fa-arrow-left"></i> Volver
-        </a>
+  <!-- Encabezado -->
+  <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+    <a
+      routerLink="/"
+      class="btn btn-sm outline-custom-btn d-inline-flex align-items-center gap-2 text-decoration-none"
+    >
+      <i class="fa-solid fa-arrow-left"></i>
+      Volver
+    </a>
 
-        <div>
-            <span class="badge badge-figma py-2 px-3 fw-medium" style="font-size: 0.75rem;">Centro de soporte</span>
+    <span class="badge badge-figma py-2 px-3 fw-medium">
+      Centro de soporte
+    </span>
+  </div>
+
+  <div class="mb-5">
+    <h2 class="fw-bold title-figma mb-1">
+      Centro de ayuda y soporte
+    </h2>
+
+    <p class="text-muted small">
+      Si tuviste un problema con una compra, venta o intercambio,
+      estamos aquí para ayudarte.
+    </p>
+  </div>
+
+  <div class="row g-5">
+
+    <div class="col-12 col-lg-8">
+
+      @if (enviado) {
+        <div class="card card-figma-bg p-4 rounded-4 shadow-sm">
+          <div class="text-center py-4">
+
+            <i class="fa-solid fa-circle-check gold-text confirmacion-icono"></i>
+
+            <h3 class="fw-bold title-figma mt-3">
+              Formulario completado
+            </h3>
+
+            <p class="text-muted">
+              Tus datos han sido validados en esta demostración.
+              El reporte todavía no se ha guardado en un servidor.
+            </p>
+
+            <button
+              type="button"
+              class="btn gold-main-btn mt-3"
+              (click)="nuevoReporte()"
+            >
+              Enviar otro reporte
+            </button>
+
+          </div>
         </div>
-    </div>
+      } @else {
 
-    <div class="mb-5">
-        <h2 class="fw-bold title-figma mb-1" style="font-size: 2rem;">Centro de ayuda y soporte</h2>
-        <p class="text-muted small">Si tuviste un problema con una compra, venta o intercambio, estamos aquí para
-            ayudarte.</p>
-    </div>
+        <form
+          #formSoporte="ngForm"
+          (ngSubmit)="enviarReporte(formSoporte)"
+          novalidate
+        >
 
-    <div class="row g-5">
-        <div class="col-12 col-lg-8">
-            <form id="contactForm">
+          <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
 
-                <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
-                    <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase" style="letter-spacing: 0.5px;">
-                        1. Tipo de problema
-                    </h5>
-                    <div>
-                        <select class="form-select form-control-figma py-2 shadow-none" required>
-                            <option value="" selected disabled>Selecciona el motivo de tu reporte...</option>
-                            <option value="pago">Problema con un pago (Cobro indebido / No reflejado)</option>
-                            <option value="material">Material o producto equivocado / defectuoso</option>
-                            <option value="estafa">Incidencia o sospecha de estafa con usuario</option>
-                            <option value="otro">Otro inconveniente en compra / venta</option>
-                        </select>
-                    </div>
-                </div>
+            <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase">
+              1. Tipo de problema
+            </h5>
 
-                <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
-                    <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase" style="letter-spacing: 0.5px;">
-                        2. Datos de contacto
-                    </h5>
-                    <div class="row g-3">
-                        <div class="col-12 col-md-6">
-                            <label class="form-label small fw-semibold">Nombre completo <span
-                                    class="text-danger">*</span></label>
-                            <input type="text" class="form-control form-control-figma shadow-none"
-                                placeholder="Ej: Ana García López" required>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label class="form-label small fw-semibold">Correo electrónico <span
-                                    class="text-danger">*</span></label>
-                            <input type="email" class="form-control form-control-figma shadow-none"
-                                placeholder="tu@correo.edu.pe" required>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label class="form-label small fw-semibold">Teléfono (opcional)</label>
-                            <input type="tel" class="form-control form-control-figma shadow-none"
-                                placeholder="+51 999 000 000">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label class="form-label small fw-semibold">N° de transacción (opcional)</label>
-                            <input type="text" class="form-control form-control-figma shadow-none"
-                                placeholder="Ej: TXN-20260813-0042">
-                        </div>
-                    </div>
-                </div>
+            <label for="tipoProblema" class="form-label small fw-semibold">
+              Motivo del reporte <span class="text-danger">*</span>
+            </label>
 
-                <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
-                    <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase" style="letter-spacing: 0.5px;">
-                        3. Describe el problema
-                    </h5>
-                    <div class="mb-1">
-                        <label class="form-label small fw-semibold">Descripción detallada <span
-                                class="text-danger">*</span></label>
-                        <textarea class="form-control form-control-figma shadow-none" rows="4" maxlength="1000"
-                            placeholder="Describe qué ocurrió, cuándo fue, qué artículo o pago estuvo involucrado y cualquier detalle relevante para agilizar la resolución..."
-                            oninput="document.getElementById('charCount').innerText = this.value.length"
-                            required></textarea>
-                        <div class="text-end text-muted small mt-1" style="font-size: 0.75rem;"><span
-                                id="charCount">0</span> / 1000</div>
-                    </div>
-                </div>
+            <select
+              id="tipoProblema"
+              name="tipoProblema"
+              class="form-select form-control-figma py-2 shadow-none"
+              [(ngModel)]="reporte.tipoProblema"
+              #tipoProblema="ngModel"
+              required
+            >
+              <option value="" disabled>
+                Selecciona el motivo de tu reporte...
+              </option>
 
-                <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
-                    <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase" style="letter-spacing: 0.5px;">
-                        4. Evidencia (opcional)
-                    </h5>
-                    <div class="upload-dropzone p-4 text-center rounded-3 border border-dashed"
-                        style="cursor: pointer;">
-                        <i class="fa-solid fa-cloud-arrow-up fs-3 gold-text mb-2"></i>
-                        <p class="small mb-1">Arrastra archivos aquí o <span
-                                class="gold-link fw-semibold">selecciona</span></p>
-                        <p class="text-muted mb-0" style="font-size: 0.75rem;">Capturas de pantalla, fotos del artículo,
-                            comprobantes de pago (máx. 5 MB c/u)</p>
-                    </div>
-                </div>
+              <option value="pago">
+                Problema con un pago (cobro indebido o no reflejado)
+              </option>
 
-                <button type="submit" class="btn gold-main-btn w-100 py-3 fw-bold rounded-3 shadow-sm">
-                    Enviar reporte
-                </button>
+              <option value="material">
+                Material o producto equivocado / defectuoso
+              </option>
 
-            </form>
-        </div>
+              <option value="estafa">
+                Incidencia o sospecha de estafa con un usuario
+              </option>
 
-        <div class="col-12 col-lg-4">
+              <option value="otro">
+                Otro inconveniente en compra / venta
+              </option>
+            </select>
 
-            <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
-                <h5 class="fw-bold card-title-figma mb-3 fs-6">
-                    <i class="fa-solid fa-headset gold-text me-2"></i> Contacto directo
-                </h5>
-                <p class="small text-muted mb-2">Correo: <a href="mailto:soporte@utpinocomparte.pe"
-                        class="gold-link text-decoration-none">soporte@utpinocomparte.pe</a></p>
-                <p class="small text-muted mb-2">Teléfono central: +51 (01) 000-0000</p>
-                <hr class="border-secondary opacity-25 my-3">
-                <p class="text-muted mb-0" style="font-size: 0.75rem;">Lunes a viernes, 8:00 am – 6:00 pm (hora Lima)
+            @if (tipoProblema.invalid && tipoProblema.touched) {
+              <small class="text-danger mt-2">
+                Selecciona el motivo de tu reporte.
+              </small>
+            }
+
+          </div>
+
+          <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+
+            <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase">
+              2. Datos de contacto
+            </h5>
+
+            <div class="row g-3">
+
+              <div class="col-12 col-md-6">
+                <label for="nombre" class="form-label small fw-semibold">
+                  Nombre completo <span class="text-danger">*</span>
+                </label>
+
+                <input
+                  id="nombre"
+                  name="nombre"
+                  type="text"
+                  class="form-control form-control-figma shadow-none"
+                  placeholder="Ej: Ana García López"
+                  [(ngModel)]="reporte.nombre"
+                  #nombre="ngModel"
+                  required
+                  minlength="3"
+                  maxlength="100"
+                  autocomplete="name"
+                >
+
+                @if (nombre.invalid && nombre.touched) {
+                  <small class="text-danger">
+                    Ingresa tu nombre completo (mínimo 3 caracteres).
+                  </small>
+                }
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="correo" class="form-label small fw-semibold">
+                  Correo electrónico <span class="text-danger">*</span>
+                </label>
+
+                <input
+                  id="correo"
+                  name="correo"
+                  type="email"
+                  class="form-control form-control-figma shadow-none"
+                  placeholder="tu@correo.edu.pe"
+                  [(ngModel)]="reporte.correo"
+                  #correo="ngModel"
+                  required
+                  email
+                  maxlength="150"
+                  autocomplete="email"
+                >
+
+                @if (correo.invalid && correo.touched) {
+                  <small class="text-danger">
+                    Ingresa un correo electrónico válido.
+                  </small>
+                }
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="telefono" class="form-label small fw-semibold">
+                  Teléfono (opcional)
+                </label>
+
+                <input
+                  id="telefono"
+                  name="telefono"
+                  type="tel"
+                  class="form-control form-control-figma shadow-none"
+                  placeholder="+51 999 000 000"
+                  [(ngModel)]="reporte.telefono"
+                  maxlength="20"
+                  autocomplete="tel"
+                >
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="transaccion" class="form-label small fw-semibold">
+                  N.º de transacción (opcional)
+                </label>
+
+                <input
+                  id="transaccion"
+                  name="transaccion"
+                  type="text"
+                  class="form-control form-control-figma shadow-none"
+                  placeholder="Ej: TXN-20261028-0042"
+                  [(ngModel)]="reporte.transaccion"
+                  maxlength="100"
+                >
+              </div>
+
+            </div>
+          </div>
+
+          <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+
+            <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase">
+              3. Describe el problema
+            </h5>
+
+            <label for="descripcion" class="form-label small fw-semibold">
+              Descripción detallada <span class="text-danger">*</span>
+            </label>
+
+            <textarea
+              id="descripcion"
+              name="descripcion"
+              class="form-control form-control-figma shadow-none"
+              rows="5"
+              maxlength="1000"
+              placeholder="Describe qué ocurrió, cuándo fue, qué artículo o pago estuvo involucrado y cualquier detalle relevante para agilizar la resolución..."
+              [(ngModel)]="reporte.descripcion"
+              #descripcion="ngModel"
+              required
+              minlength="10"
+            ></textarea>
+
+            <div class="d-flex justify-content-between align-items-start mt-1">
+              @if (descripcion.invalid && descripcion.touched) {
+                <small class="text-danger">
+                  Describe el problema con al menos 10 caracteres.
+                </small>
+              } @else {
+                <small class="text-muted">
+                  Explica los detalles relevantes de tu caso.
+                </small>
+              }
+
+              <small class="text-muted text-nowrap ms-2">
+                {{ reporte.descripcion.length }} / 1000
+              </small>
+            </div>
+
+          </div>
+
+          <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+
+            <h5 class="fw-bold card-title-figma mb-3 fs-6 text-uppercase">
+              4. Evidencia (opcional)
+            </h5>
+
+            <div
+              class="upload-dropzone p-4 text-center rounded-3"
+              role="button"
+              tabindex="0"
+              (click)="evidenciaInput.click()"
+              (keydown.enter)="evidenciaInput.click()"
+              (keydown.space)="$event.preventDefault(); evidenciaInput.click()"
+              (dragover)="onDragOver($event)"
+              (drop)="onFilesDropped($event)"
+            >
+              <i class="fa-solid fa-cloud-arrow-up fs-3 gold-text mb-2"></i>
+
+              <p class="small mb-1">
+                Arrastra archivos aquí o
+                <span class="gold-link fw-semibold">selecciona</span>
+              </p>
+
+              <p class="text-muted mb-0">
+                Capturas de pantalla, fotos o comprobantes de pago.
+                Máximo 5 MB por archivo.
+              </p>
+
+              <input
+                #evidenciaInput
+                id="evidencia"
+                type="file"
+                class="d-none"
+                accept="image/*,.pdf"
+                multiple
+                (change)="onFilesSelected($event)"
+              >
+            </div>
+
+            @if (errorArchivo) {
+              <div class="alert alert-warning mt-3 mb-0" role="alert">
+                {{ errorArchivo }}
+              </div>
+            }
+
+            @if (archivos.length > 0) {
+              <div class="mt-3">
+                <p class="small fw-semibold mb-2">
+                  Archivos seleccionados:
                 </p>
-            </div>
 
-            <div class="card card-figma-bg p-4 border rounded-4 shadow-sm">
-                <h5 class="fw-bold card-title-figma mb-3 fs-6">
-                    Consejos antes de reportar
-                </h5>
-                <ul class="list-unstyled small text-muted d-flex flex-column gap-2 mb-0" style="line-height: 1.5;">
-                    <li class="d-flex align-items-start gap-2">
-                        <span class="gold-text">•</span> Intentar primero contactar directamente al vendedor/comprador
-                        por el chat.
+                <ul class="list-group">
+                  @for (archivo of archivos; track archivo.name + archivo.lastModified) {
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center gap-3"
+                    >
+                      <span class="small text-break">
+                        <i class="fa-solid fa-paperclip me-2 gold-text"></i>
+                        {{ archivo.name }}
+                        <span class="text-muted">
+                          ({{ (archivo.size / 1024 / 1024).toFixed(2) }} MB)
+                        </span>
+                      </span>
+
+                      <button
+                        type="button"
+                        class="btn btn-sm outline-custom-btn flex-shrink-0"
+                        (click)="eliminarArchivo($index)"
+                        [attr.aria-label]="'Eliminar ' + archivo.name"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
                     </li>
-                    <li class="d-flex align-items-start gap-2">
-                        <span class="gold-text">•</span> Guarda capturas del anuncio, mensajes y comprobantes de pago.
-                    </li>
-                    <li class="d-flex align-items-start gap-2">
-                        <span class="gold-text">•</span> Si pagaste con nuestra plataforma, el reembolso está
-                        garantizado.
-                    </li>
-                    <li class="d-flex align-items-start gap-2">
-                        <span class="gold-text">•</span> Incluye el número de transacción para agilizar la resolución.
-                    </li>
+                  }
                 </ul>
-            </div>
+              </div>
+            }
 
-        </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn gold-main-btn w-100 py-3 fw-bold rounded-3 shadow-sm"
+          >
+            <i class="fa-solid fa-paper-plane me-2"></i>
+            Enviar reporte
+          </button>
+
+          <p class="text-muted small mt-3">
+            Los campos marcados con * son obligatorios.
+          </p>
+
+        </form>
+      }
+
     </div>
+
+    <div class="col-12 col-lg-4">
+
+      <div class="card card-figma-bg p-4 mb-4 border rounded-4 shadow-sm">
+
+        <h5 class="fw-bold card-title-figma mb-3 fs-6">
+          <i class="fa-solid fa-headset gold-text me-2"></i>
+          Contacto directo
+        </h5>
+
+        <p class="small text-muted mb-2">
+          Correo:
+          <a
+            href="mailto:soporte@utpinocomparte.pe"
+            class="gold-link text-decoration-none"
+          >
+            soporte@utpinocomparte.pe
+          </a>
+        </p>
+
+        <p class="small text-muted mb-2">
+          Teléfono central: +51 (01) 000-0000
+        </p>
+
+        <hr class="border-secondary opacity-25 my-3">
+
+        <p class="text-muted mb-0 small">
+          Lunes a viernes, 8:00 a. m. – 6:00 p. m. (hora Lima).
+        </p>
+
+      </div>
+
+      <div class="card card-figma-bg p-4 border rounded-4 shadow-sm">
+
+        <h5 class="fw-bold card-title-figma mb-3 fs-6">
+          Consejos antes de reportar
+        </h5>
+
+        <ul class="list-unstyled small text-muted d-flex flex-column gap-3 mb-0">
+
+          <li class="d-flex align-items-start gap-2">
+            <span class="gold-text">•</span>
+            Intenta contactar al vendedor o comprador por el chat, si es seguro hacerlo.
+          </li>
+
+          <li class="d-flex align-items-start gap-2">
+            <span class="gold-text">•</span>
+            Guarda capturas del anuncio, los mensajes y los comprobantes de pago.
+          </li>
+
+          <li class="d-flex align-items-start gap-2">
+            <span class="gold-text">•</span>
+            No compartas contraseñas ni información bancaria sensible en el reporte.
+          </li>
+
+          <li class="d-flex align-items-start gap-2">
+            <span class="gold-text">•</span>
+            Si tienes un número de transacción, inclúyelo para facilitar la revisión.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
 </section>

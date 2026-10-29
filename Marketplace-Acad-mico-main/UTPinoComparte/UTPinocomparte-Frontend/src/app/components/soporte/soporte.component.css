@@ -1,29 +1,90 @@
-/* ========================================================================== */
-/* 7. SECCIÓN DE CONTACTO, SOPORTE Y FORMULARIOS                              */
-/* ========================================================================== */
-
-/* Fondo general de la sección de soporte/contacto */
 .contacto-figma-bg,
 #contacto {
-    background-color: var(--bg-main) !important;
+  background-color: var(--bg-main) !important;
 }
 
-/* Estilo unificado para campos de texto, select y áreas de texto */
 .form-control-figma,
 .form-control,
 .form-select {
-    background-color: var(--bg-main) !important;
-    border: 1px solid var(--border-color) !important;
-    color: var(--text-main) !important;
+  background-color: var(--bg-main) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  border-radius: 0.5rem;
 }
 
-/* Zona interactiva de carga de archivos por arrastre */
+.form-control-figma::placeholder,
+.form-control::placeholder,
+textarea::placeholder {
+  color: var(--text-muted, #888) !important;
+  opacity: 0.85;
+}
+
+.form-control-figma:focus,
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--gold-primary) !important;
+  box-shadow: 0 0 0 0.15rem
+    color-mix(in srgb, var(--gold-primary) 20%, transparent) !important;
+}
+
 .upload-dropzone {
-    background-color: var(--bg-main) !important;
-    border: 1px dashed var(--border-color) !important;
+  background-color: var(--bg-main) !important;
+  border: 1px dashed var(--border-color) !important;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+  cursor: pointer;
 }
 
-/* Enlaces con acento dorado en todo el sitio */
+.upload-dropzone:hover,
+.upload-dropzone:focus-visible {
+  border-color: var(--gold-primary) !important;
+  outline: none;
+}
+
 .gold-link {
-    color: var(--gold-primary) !important;
+  color: var(--gold-primary) !important;
+}
+
+.gold-text {
+  color: var(--gold-primary) !important;
+}
+
+.card-figma-bg {
+  background-color: var(--bg-card, var(--bg-main));
+  border-color: var(--border-color) !important;
+}
+
+.list-group-item {
+  background-color: var(--bg-main);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+.confirmacion-icono {
+  font-size: 3.5rem;
+}
+
+.gold-main-btn {
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gold-main-btn:hover {
+  filter: brightness(1.05);
+}
+
+.gold-main-btn:active {
+  transform: scale(0.99);
+}
+
+@media (max-width: 575.98px) {
+  .upload-dropzone {
+    padding: 1.25rem !important;
+  }
+
+  .card-figma-bg {
+    padding: 1.25rem !important;
+  }
 }
